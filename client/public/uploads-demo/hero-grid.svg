@@ -1,0 +1,35 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#071221"/>
+  <g opacity="0.55">
+    <path d="M0 1030L240 820L410 930L620 700L850 860L1030 610L1280 780L1600 480V1200H0V1030Z" fill="url(#paint0_linear)"/>
+    <path d="M0 1140L210 940L430 1050L620 820L860 980L1070 760L1320 960L1600 690V1200H0V1140Z" fill="url(#paint1_linear)"/>
+  </g>
+  <g opacity="0.2">
+    <path d="M128 140H1472" stroke="#8BE5D3"/>
+    <path d="M128 280H1472" stroke="#8BE5D3"/>
+    <path d="M128 420H1472" stroke="#8BE5D3"/>
+    <path d="M128 560H1472" stroke="#8BE5D3"/>
+    <path d="M128 700H1472" stroke="#8BE5D3"/>
+    <path d="M128 840H1472" stroke="#8BE5D3"/>
+    <path d="M128 980H1472" stroke="#8BE5D3"/>
+    <path d="M128 1120H1472" stroke="#8BE5D3"/>
+    <path d="M140 128V1120" stroke="#8BE5D3"/>
+    <path d="M320 128V1120" stroke="#8BE5D3"/>
+    <path d="M500 128V1120" stroke="#8BE5D3"/>
+    <path d="M680 128V1120" stroke="#8BE5D3"/>
+    <path d="M860 128V1120" stroke="#8BE5D3"/>
+    <path d="M1040 128V1120" stroke="#8BE5D3"/>
+    <path d="M1220 128V1120" stroke="#8BE5D3"/>
+    <path d="M1400 128V1120" stroke="#8BE5D3"/>
+  </g>
+  <defs>
+    <linearGradient id="paint0_linear" x1="800" y1="480" x2="800" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8BE5D3" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#8BE5D3" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="800" y1="690" x2="800" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>

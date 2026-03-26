@@ -1,0 +1,15 @@
+node_modules/
+dist/
+build/
+.DS_Store
+
+client/node_modules/
+client/dist/
+client/.env
+
+server/node_modules/
+server/uploads/
+server/email-outbox/
+server/.env
+
+*.log

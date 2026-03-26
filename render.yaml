@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: civicon-2026-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: EMAIL_DELIVERY_MODE
+        value: smtp
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_SECURE
+        value: false
+      - key: UPLOAD_DIR
+        value: /var/data/uploads
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+    disk:
+      name: civicon-uploads
+      mountPath: /var/data
+      sizeGB: 1
