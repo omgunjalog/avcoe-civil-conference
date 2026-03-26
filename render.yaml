@@ -38,7 +38,3 @@ services:
       - key: MAIL_FROM
         sync: false
 
-    disk:
-      name: civicon-uploads
-      mountPath: /var/data
-      sizeGB: 1
