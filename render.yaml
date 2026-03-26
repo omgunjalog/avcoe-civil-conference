@@ -20,23 +20,23 @@ services:
       - key: UPLOAD_DIR
         value: /var/data/uploads
       - key: ALLOWED_ORIGINS
-        sync: false
+        sync: https://example.com
       - key: CLIENT_URL
-        sync: false
+        sync: https://example.com
       - key: MONGODB_URI
-        sync: false
+        sync: mongodb+srv://civicon2026:EkmId1nvVbPFUqet@cluster0.dlgcgsh.mongodb.net/avcoe-civil-conference?retryWrites=true&w=majority&appName=Cluster0
       - key: JWT_SECRET
-        sync: false
+        sync: civicon-2026-super-secure-jwt-key-rotate-this-before-production
       - key: ADMIN_EMAIL
-        sync: false
+        sync: admin@civicon2026.com
       - key: ADMIN_PASSWORD
-        sync: false
+        sync: admin@123
       - key: SMTP_USER
-        sync: false
+        sync: civicon2026@gmail.com
       - key: SMTP_PASS
-        sync: false
+        sync: kcfyhhkuaigdwqkw
       - key: MAIL_FROM
-        sync: false
+        sync: CIVICON 2026 <civicon2026@gmail.com>
     disk:
       name: civicon-uploads
       mountPath: /var/data
