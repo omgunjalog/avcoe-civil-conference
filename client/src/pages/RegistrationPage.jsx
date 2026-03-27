@@ -44,7 +44,7 @@ function RegistrationPage() {
             <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
               <div>
                 <span className="section-kicker border-teal-200/80 bg-teal-50 text-teal-700">{pricingState.badge}</span>
-                <h2 className="mt-5 font-display text-4xl text-slate-950">{pricingState.label} Registration</h2>
+                <h2 className="mt-5 font-display text-3xl text-slate-950 sm:text-4xl">{pricingState.label} Registration</h2>
                 <p className="mt-4 max-w-3xl text-sm leading-8 text-slate-600 sm:text-[1.02rem]">
                   {pricingState.note}
                 </p>
@@ -72,8 +72,8 @@ function RegistrationPage() {
                     {item.tag}
                   </span>
                 </div>
-                <h3 className="mt-6 font-display text-3xl text-slate-950">{item.category}</h3>
-                <p className="mt-4 text-5xl font-semibold tracking-tight text-slate-950">{item.price}</p>
+                <h3 className="mt-6 font-display text-2xl text-slate-950 sm:text-3xl">{item.category}</h3>
+                <p className="mt-4 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">{item.price}</p>
                 <div className="mt-6 space-y-3">
                   {item.features.map((feature) => (
                     <div key={feature} className="flex gap-3 rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-600">
@@ -124,7 +124,7 @@ function RegistrationPage() {
                   <img
                     src={paymentInfo.qrCodePath}
                     alt="Conference payment QR"
-                    className="mt-4 h-48 w-48 rounded-3xl border border-slate-200 bg-white p-3"
+                    className="mt-4 h-40 w-40 rounded-3xl border border-slate-200 bg-white p-3 sm:h-48 sm:w-48"
                   />
                 </div>
               </div>

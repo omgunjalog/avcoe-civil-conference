@@ -59,6 +59,9 @@ const getTransporter = () => {
     port,
     secure: String(process.env.SMTP_SECURE || 'false').toLowerCase() === 'true',
     auth: { user, pass },
+    connectionTimeout: Number(process.env.SMTP_CONNECTION_TIMEOUT || 10000),
+    greetingTimeout: Number(process.env.SMTP_GREETING_TIMEOUT || 10000),
+    socketTimeout: Number(process.env.SMTP_SOCKET_TIMEOUT || 20000),
   })
 
   return transporter

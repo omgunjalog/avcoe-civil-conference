@@ -3,6 +3,7 @@ const path = require('path')
 const { Paper } = require('../models/Paper')
 const { Registration } = require('../models/Registration')
 const {
+  queueNotification,
   sendPaperStatusEmail,
   sendPaperSubmittedEmail,
 } = require('../services/notificationService')
@@ -151,8 +152,8 @@ const createPaper = async (req, res, next) => {
     })
 
     const enrichedPaper = await enrichPaper(paper)
-    await sendPaperSubmittedEmail(enrichedPaper)
     res.status(201).json(enrichedPaper)
+    queueNotification('Paper submission email', () => sendPaperSubmittedEmail(enrichedPaper))
   } catch (error) {
     removeUploadedFile(req.file?.path)
     if (!res.statusCode || res.statusCode === 200) {
@@ -233,8 +234,8 @@ const updatePaperStatus = async (req, res, next) => {
 
     await paper.save()
     const enrichedPaper = await enrichPaper(paper)
-    await sendPaperStatusEmail(enrichedPaper)
     res.json(enrichedPaper)
+    queueNotification('Paper status email', () => sendPaperStatusEmail(enrichedPaper))
   } catch (error) {
     if (!res.statusCode || res.statusCode === 200) {
       res.status(400)

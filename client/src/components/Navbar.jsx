@@ -10,10 +10,10 @@ function Navbar() {
     `whitespace-nowrap text-[0.92rem] font-medium transition ${isActive ? 'text-teal-300' : 'text-slate-200/80 hover:text-white'}`
 
   return (
-    <header className="sticky top-0 z-50 pt-4">
+    <header className="sticky top-0 z-50 pt-3 sm:pt-4">
       <div className="content-grid">
         <div className="nav-shell grid grid-cols-[auto_1fr_auto] items-center gap-4 lg:grid-cols-[auto_auto_auto_1fr_auto]">
-          <Link to="/" className="flex items-center gap-3 lg:col-start-1">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 lg:col-start-1">
             <div className="brand-badge hidden lg:block">
               <img
                 src="/brand/amrutvahini-wordmark.svg"
@@ -29,8 +29,10 @@ function Navbar() {
           <div className="hidden h-12 w-px bg-white/10 lg:col-start-2 lg:block" />
 
           <div className="min-w-0 lg:col-start-3">
-            <p className="text-sm font-semibold text-white">CIVICON 2026</p>
-            <p className="text-[0.68rem] uppercase tracking-[0.28em] text-slate-300/75">Civil Department Conference</p>
+            <p className="text-sm font-semibold text-white sm:text-[0.95rem]">CIVICON 2026</p>
+            <p className="hidden text-[0.62rem] uppercase tracking-[0.24em] text-slate-300/75 sm:block lg:text-[0.68rem] lg:tracking-[0.28em]">
+              Civil Department Conference
+            </p>
           </div>
 
           <nav className="hidden items-center justify-end gap-5 xl:gap-6 lg:col-start-4 lg:flex">
@@ -49,7 +51,7 @@ function Navbar() {
 
           <button
             type="button"
-            className="col-start-3 grid h-11 w-11 place-items-center rounded-2xl border border-white/12 bg-white/6 text-white lg:hidden"
+            className="col-start-3 grid h-10 w-10 place-items-center rounded-2xl border border-white/12 bg-white/6 text-white lg:hidden"
             onClick={() => setOpen((value) => !value)}
             aria-label="Toggle navigation"
           >
@@ -65,13 +67,15 @@ function Navbar() {
               <NavLink
                 key={item.href}
                 to={item.href}
-                className={navClass}
+                className={({ isActive }) =>
+                  `rounded-2xl px-3 py-2 text-base font-medium transition ${isActive ? 'bg-white/10 text-teal-300' : 'text-slate-100/85 hover:bg-white/6 hover:text-white'}`
+                }
                 onClick={() => setOpen(false)}
               >
                 {item.label}
               </NavLink>
             ))}
-            <Link to="/submit-paper" className="button-primary" onClick={() => setOpen(false)}>
+            <Link to="/submit-paper" className="button-primary w-full" onClick={() => setOpen(false)}>
               Submit Paper
             </Link>
           </div>

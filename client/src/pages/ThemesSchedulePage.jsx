@@ -62,11 +62,11 @@ function ThemesSchedulePage() {
             <Reveal>
               <div className="surface-card overflow-hidden">
                 <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-                  <div>
-                    <div className="inline-flex rounded-2xl bg-teal-50 p-3 text-teal-600">
-                      <Sparkles size={22} />
-                    </div>
-                    <h2 className="mt-5 font-display text-4xl text-slate-950">About the conference themes</h2>
+                    <div>
+                      <div className="inline-flex rounded-2xl bg-teal-50 p-3 text-teal-600">
+                        <Sparkles size={22} />
+                      </div>
+                    <h2 className="mt-5 font-display text-3xl text-slate-950 sm:text-4xl">About the conference themes</h2>
                     <div className="mt-6 space-y-4">
                       {themesOverview.map((item) => (
                         <p key={item} className="text-sm leading-8 text-slate-600 sm:text-[1.02rem]">
@@ -121,7 +121,7 @@ function ThemesSchedulePage() {
                       </div>
                       <div>
                         <p className="font-semibold uppercase tracking-[0.18em] text-teal-100">{day.day}</p>
-                        <h2 className="mt-2 font-display text-4xl">{day.date}</h2>
+                        <h2 className="mt-2 font-display text-3xl sm:text-4xl">{day.date}</h2>
                         <p className="mt-2 text-sm text-white/78">{day.label}</p>
                       </div>
                     </div>
@@ -141,7 +141,7 @@ function ThemesSchedulePage() {
                       <div key={`${day.day}-${section.title}`} className={`rounded-[28px] border px-5 py-5 ${scheduleCardAccent[section.type] || 'border-slate-200 bg-slate-50'}`}>
                         <div className="flex flex-col gap-3 border-b border-slate-200/70 pb-4 lg:flex-row lg:items-center lg:justify-between">
                           <div>
-                            <h3 className="font-display text-3xl text-slate-950">{section.title}</h3>
+                            <h3 className="font-display text-2xl text-slate-950 sm:text-3xl">{section.title}</h3>
                             {section.coordinator ? (
                               <p className="mt-2 text-sm font-medium text-slate-600">{section.coordinator}</p>
                             ) : null}

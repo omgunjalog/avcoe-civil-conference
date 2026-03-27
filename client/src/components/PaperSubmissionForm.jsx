@@ -61,7 +61,7 @@ function PaperSubmissionForm() {
           </p>
           <h3 className="mt-4 font-display text-3xl text-slate-950">Submission recorded.</h3>
           <p className="mt-4 text-sm leading-7 text-slate-600">
-            Keep this tracking ID safe. Authors can use it with their email to check review progress without needing a full account.
+            Keep this tracking ID safe. Authors can use it with their email to check review progress without needing a full account. If the confirmation email takes a few minutes, this on-page confirmation is still valid immediately.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl bg-white/90 px-4 py-4">
@@ -94,12 +94,12 @@ function PaperSubmissionForm() {
           </div>
           <input className="field" name="title" placeholder="Paper title" value={form.title} onChange={handleChange} required />
           <textarea className="field min-h-36" name="abstract" placeholder="Paper abstract" value={form.abstract} onChange={handleChange} required />
-          <label className="flex cursor-pointer items-center justify-between rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-4 py-4 text-sm text-slate-600">
+          <label className="flex cursor-pointer flex-col gap-3 rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-4 py-4 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
             <span className="inline-flex items-center gap-2">
               <FileText size={16} />
               {form.file?.name || 'Upload PDF manuscript'}
             </span>
-            <span className="button-ghost">Choose file</span>
+            <span className="button-ghost w-full sm:w-auto">Choose file</span>
             <input type="file" name="file" accept="application/pdf" className="hidden" onChange={handleChange} required />
           </label>
           <button type="submit" className="button-primary w-full" disabled={loading}>

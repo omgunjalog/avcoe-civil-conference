@@ -10,6 +10,16 @@ const sendSafely = async (payload) => {
   }
 }
 
+const queueNotification = (label, task) => {
+  setImmediate(async () => {
+    try {
+      await task()
+    } catch (error) {
+      console.error(`${label} dispatch failed:`, error.message)
+    }
+  })
+}
+
 const buildHtml = (title, intro, lines, actionLabel, actionHref) => `
   <div style="font-family: Arial, sans-serif; color: #0f172a; line-height: 1.6;">
     <h2 style="margin-bottom: 12px;">${title}</h2>
@@ -157,6 +167,7 @@ const sendPaperStatusEmail = async (paper) => {
 }
 
 module.exports = {
+  queueNotification,
   sendPaperStatusEmail,
   sendPaperSubmittedEmail,
   sendRegistrationStatusEmail,

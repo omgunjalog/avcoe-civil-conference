@@ -5,6 +5,7 @@ export const SERVER_BASE_URL = import.meta.env.VITE_SERVER_URL || 'http://localh
 
 const api = axios.create({
   baseURL: API_BASE_URL,
+  timeout: 30000,
 })
 
 export const setAdminToken = (token) => {

@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { Registration } = require('../models/Registration')
 const {
+  queueNotification,
   sendRegistrationStatusEmail,
   sendRegistrationSubmittedEmail,
 } = require('../services/notificationService')
@@ -27,8 +28,8 @@ const createRegistration = async (req, res, next) => {
       paymentProofUrl: `/uploads/${req.file.filename}`,
     })
 
-    await sendRegistrationSubmittedEmail(registration)
     res.status(201).json(registration)
+    queueNotification('Registration submission email', () => sendRegistrationSubmittedEmail(registration))
   } catch (error) {
     removeUploadedFile(req.file?.path)
     if (!res.statusCode || res.statusCode === 200) {
@@ -74,11 +75,10 @@ const updateRegistration = async (req, res, next) => {
       runValidators: true,
     })
 
-    if (payload.paymentStatus !== existingRegistration.paymentStatus) {
-      await sendRegistrationStatusEmail(registration)
-    }
-
     res.json(registration)
+    if (payload.paymentStatus !== existingRegistration.paymentStatus) {
+      queueNotification('Registration status email', () => sendRegistrationStatusEmail(registration))
+    }
   } catch (error) {
     if (!res.statusCode || res.statusCode === 200) {
       res.status(400)
