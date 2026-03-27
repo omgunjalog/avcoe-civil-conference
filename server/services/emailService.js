@@ -12,6 +12,7 @@ try {
 let transporter = null
 let warnedMissingTransport = false
 const outboxDirectory = path.join(__dirname, '..', 'email-outbox')
+const brevoApiUrl = 'https://api.brevo.com/v3/smtp/email'
 
 const getDeliveryMode = () => {
   const configuredMode = String(process.env.EMAIL_DELIVERY_MODE || '').toLowerCase().trim()
@@ -67,6 +68,62 @@ const getTransporter = () => {
   return transporter
 }
 
+const parseFromAddress = () => {
+  const fallbackEmail = process.env.BREVO_SENDER_EMAIL || process.env.SMTP_USER || 'no-reply@example.com'
+  const fallbackName = process.env.BREVO_SENDER_NAME || 'CIVICON 2026'
+  const configuredFrom = String(process.env.MAIL_FROM || '').trim()
+
+  if (!configuredFrom) {
+    return { email: fallbackEmail, name: fallbackName }
+  }
+
+  const match = configuredFrom.match(/^(.*)<([^>]+)>$/)
+  if (!match) {
+    return { email: configuredFrom, name: fallbackName }
+  }
+
+  const name = match[1].trim().replace(/^"|"$/g, '') || fallbackName
+  const email = match[2].trim() || fallbackEmail
+  return { email, name }
+}
+
+const sendViaBrevoApi = async ({ to, subject, text, html }) => {
+  const apiKey = process.env.BREVO_API_KEY
+
+  if (!apiKey) {
+    if (!warnedMissingTransport) {
+      console.warn('Brevo API delivery is enabled, but BREVO_API_KEY is missing. Emails will be skipped.')
+      warnedMissingTransport = true
+    }
+    return { sent: false, skipped: true }
+  }
+
+  const sender = parseFromAddress()
+  const response = await fetch(brevoApiUrl, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'api-key': apiKey,
+    },
+    body: JSON.stringify({
+      sender,
+      to: [{ email: to }],
+      subject,
+      textContent: text,
+      htmlContent: html,
+    }),
+    signal: AbortSignal.timeout(Number(process.env.BREVO_API_TIMEOUT || 15000)),
+  })
+
+  if (!response.ok) {
+    const errorBody = await response.text()
+    throw new Error(`Brevo API ${response.status}: ${errorBody}`)
+  }
+
+  return { sent: true }
+}
+
 const ensureOutboxDirectory = () => {
   if (!fs.existsSync(outboxDirectory)) {
     fs.mkdirSync(outboxDirectory, { recursive: true })
@@ -108,6 +165,10 @@ const sendEmail = async ({ to, subject, text, html }) => {
 
   if (deliveryMode === 'preview') {
     return writePreviewEmail({ to, subject, text, html })
+  }
+
+  if (deliveryMode === 'brevo_api') {
+    return sendViaBrevoApi({ to, subject, text, html })
   }
 
   const activeTransporter = getTransporter()

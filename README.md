@@ -37,6 +37,7 @@ avcoe-civil-conference/
 2. Review admin credentials in [server/.env](./server/.env).
 3. Choose an email mode in [server/.env](./server/.env):
    - `EMAIL_DELIVERY_MODE=preview` to save generated emails locally for testing
+   - `EMAIL_DELIVERY_MODE=brevo_api` with `BREVO_API_KEY` for production-friendly HTTPS delivery
    - `EMAIL_DELIVERY_MODE=smtp` with SMTP credentials for real delivery
    - `EMAIL_DELIVERY_MODE=off` to disable notifications entirely
 4. Install dependencies:
@@ -84,6 +85,7 @@ npm run dev
 The backend supports three modes:
 
 - `preview`: writes generated emails into `server/email-outbox/`
+- `brevo_api`: sends real emails using Brevo's transactional email HTTP API
 - `smtp`: sends real emails using the configured SMTP provider
 - `off`: disables email delivery
 
@@ -145,6 +147,7 @@ Required backend env vars:
 - `ALLOWED_ORIGINS`
 - `CLIENT_URL`
 - `EMAIL_DELIVERY_MODE`
+- `BREVO_API_KEY`
 - `SMTP_HOST`
 - `SMTP_PORT`
 - `SMTP_SECURE`
@@ -155,10 +158,7 @@ Required backend env vars:
 Recommended values:
 
 - `UPLOAD_DIR=/var/data/uploads`
-- `EMAIL_DELIVERY_MODE=smtp`
-- `SMTP_HOST=smtp.gmail.com`
-- `SMTP_PORT=587`
-- `SMTP_SECURE=false`
+- `EMAIL_DELIVERY_MODE=brevo_api`
 
 Important:
 
