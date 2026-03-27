@@ -21,8 +21,12 @@ function Navbar() {
                 className="h-8 w-auto"
               />
             </div>
-            <div className="lg:hidden grid h-11 w-11 place-items-center rounded-2xl border border-teal-300/45 bg-white/12 text-sm font-bold text-teal-200 shadow-[0_10px_30px_rgba(65,211,189,0.2)]">
-              AV
+            <div className="mobile-brand-badge lg:hidden">
+              <img
+                src="/brand/amrutvahini-wordmark.svg"
+                alt="Amrutvahini"
+                className="h-5 w-auto"
+              />
             </div>
           </Link>
 
@@ -62,7 +66,7 @@ function Navbar() {
 
       {open && (
         <div className="content-grid lg:hidden">
-          <div className="nav-shell mt-3 flex flex-col gap-4 py-5">
+          <div className="nav-shell mobile-menu-shell mt-3 flex flex-col gap-4 py-5">
             {navigationLinks.map((item) => (
               <NavLink
                 key={item.href}

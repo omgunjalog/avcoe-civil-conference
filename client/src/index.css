@@ -111,6 +111,14 @@
     @apply rounded-2xl border border-[#8bbce0]/40 bg-white px-3 py-2 shadow-[0_12px_30px_rgba(11,113,182,0.16)];
   }
 
+  .mobile-brand-badge {
+    @apply flex h-12 min-w-[5.5rem] items-center justify-center rounded-2xl border border-[#9fcce7]/55 bg-white px-3 py-2 shadow-[0_12px_28px_rgba(11,113,182,0.18)];
+  }
+
+  .mobile-menu-shell {
+    @apply border-white/14 bg-[linear-gradient(180deg,rgba(16,39,56,0.97),rgba(22,52,72,0.95))] shadow-[0_24px_70px_rgba(2,10,20,0.38)];
+  }
+
   .display-title {
     @apply font-display text-4xl leading-none text-slate-950 sm:text-6xl lg:text-7xl;
   }
