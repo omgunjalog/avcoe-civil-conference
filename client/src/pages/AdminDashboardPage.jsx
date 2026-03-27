@@ -432,14 +432,14 @@ function AdminDashboardPage() {
   return (
     <div className="min-h-screen bg-slate-100">
       <div className="content-grid py-10">
-        <div className="flex flex-col gap-4 rounded-[30px] bg-navy-900 px-8 py-8 text-white lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-4 rounded-[30px] bg-navy-900 px-5 py-6 text-white sm:px-8 sm:py-8 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <p className="section-kicker border-white/10 bg-white/8 text-teal-200">Admin Panel</p>
-            <h1 className="mt-5 font-display text-5xl">Conference Operations Dashboard</h1>
+            <h1 className="mt-5 font-display text-3xl sm:text-5xl">Conference Operations Dashboard</h1>
           </div>
           <button
             type="button"
-            className="button-secondary"
+            className="button-secondary w-full justify-center sm:w-auto"
             onClick={() => {
               setAdminToken(null)
               navigate('/admin/login')
@@ -457,7 +457,7 @@ function AdminDashboardPage() {
             onClick={() => setActivePanel('registrations')}
           >
             <p className="text-sm uppercase tracking-[0.18em] text-teal-600">Registrations</p>
-            <h2 className="mt-3 font-display text-5xl text-slate-950">{overview.registrations}</h2>
+            <h2 className="mt-3 font-display text-4xl text-slate-950 sm:text-5xl">{overview.registrations}</h2>
             <p className="mt-3 text-sm text-slate-500">Participant signups with payment verification workflow.</p>
           </button>
           <button
@@ -466,17 +466,17 @@ function AdminDashboardPage() {
             onClick={() => setActivePanel('papers')}
           >
             <p className="text-sm uppercase tracking-[0.18em] text-teal-600">Papers</p>
-            <h2 className="mt-3 font-display text-5xl text-slate-950">{overview.papers}</h2>
+            <h2 className="mt-3 font-display text-4xl text-slate-950 sm:text-5xl">{overview.papers}</h2>
             <p className="mt-3 text-sm text-slate-500">Tracked manuscripts, review statuses, and author-facing progress.</p>
           </button>
         </div>
 
         <div className="mt-8">
-          <div className="mb-5 flex flex-wrap gap-3">
-            <button type="button" className={panelButtonClass('registrations')} onClick={() => setActivePanel('registrations')}>
+          <div className="mb-5 grid gap-3 sm:flex sm:flex-wrap">
+            <button type="button" className={`${panelButtonClass('registrations')} w-full justify-center sm:w-auto`} onClick={() => setActivePanel('registrations')}>
               Registrations Panel
             </button>
-            <button type="button" className={panelButtonClass('papers')} onClick={() => setActivePanel('papers')}>
+            <button type="button" className={`${panelButtonClass('papers')} w-full justify-center sm:w-auto`} onClick={() => setActivePanel('papers')}>
               Papers Panel
             </button>
           </div>
@@ -494,7 +494,7 @@ function AdminDashboardPage() {
                 </p>
               </div>
 
-              <div className="flex flex-col gap-3 xl:min-w-[840px] xl:flex-row xl:items-center xl:justify-end">
+              <div className="grid gap-3 xl:min-w-[840px] xl:flex xl:flex-row xl:items-center xl:justify-end">
                 <label className="relative min-w-0 xl:w-[320px]">
                   <Search className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
                   <input
@@ -559,14 +559,14 @@ function AdminDashboardPage() {
                   <option value="30d">Last 30 days</option>
                 </select>
 
-                <button type="button" className="button-ghost" onClick={exportActivePanel}>
+                <button type="button" className="button-ghost w-full justify-center sm:w-auto" onClick={exportActivePanel}>
                   <FileDown size={14} className="mr-2" />
                   Export CSV
                 </button>
               </div>
             </div>
 
-            <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
               <p className="text-sm font-medium text-slate-500">{activeRows.length} filtered record(s)</p>
               <div className="flex items-center gap-2 text-sm text-slate-500">
                 <button
@@ -591,9 +591,9 @@ function AdminDashboardPage() {
               </div>
             </div>
 
-            <div className="mt-6 overflow-x-auto">
+            <div className="mt-6 overflow-x-auto pb-2">
               {activePanel === 'registrations' ? (
-                <table className="min-w-full text-left text-sm">
+                <table className="min-w-[980px] text-left text-sm">
                   <thead className="text-slate-500">
                     <tr>
                       <th className="pb-3 pr-6">Name</th>
@@ -660,7 +660,7 @@ function AdminDashboardPage() {
                   </tbody>
                 </table>
               ) : (
-                <table className="min-w-full text-left text-sm">
+                <table className="min-w-[980px] text-left text-sm">
                   <thead className="text-slate-500">
                     <tr>
                       <th className="pb-3 pr-6">Tracking ID</th>
@@ -731,22 +731,22 @@ function AdminDashboardPage() {
 
       {selectedRecord ? (
         <div className="fixed inset-0 z-50 flex justify-end bg-slate-950/35 backdrop-blur-sm">
-          <div className="h-full w-full max-w-2xl overflow-y-auto bg-white p-8 shadow-[0_30px_90px_rgba(7,18,33,0.24)]">
-            <div className="flex items-start justify-between gap-4 border-b border-slate-200 pb-5">
+          <div className="h-full w-full max-w-2xl overflow-y-auto bg-white p-5 shadow-[0_30px_90px_rgba(7,18,33,0.24)] sm:p-8">
+            <div className="flex flex-col gap-4 border-b border-slate-200 pb-5 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <p className="text-sm uppercase tracking-[0.18em] text-teal-600">
                   {selectedRecord.type === 'registration' ? 'Registration Detail' : 'Paper Detail'}
                 </p>
-                <h2 className="mt-3 font-display text-4xl text-slate-950">
+                <h2 className="mt-3 font-display text-3xl text-slate-950 sm:text-4xl">
                   {selectedRecord.type === 'registration'
                     ? selectedRecord.name
                     : selectedRecord.title}
                 </h2>
               </div>
-              <div className="flex gap-2">
+              <div className="flex flex-col gap-2 sm:flex-row">
                 <button
                   type="button"
-                  className="button-ghost"
+                  className="button-ghost w-full justify-center sm:w-auto"
                   onClick={() => {
                     setIsEditing((current) => !current)
                     setEditForm(getEditStateFromRecord(selectedRecord))

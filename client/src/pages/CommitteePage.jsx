@@ -14,9 +14,9 @@ function CommitteePage() {
         />
 
         <Reveal>
-          <div className="glass-panel page-hero-band px-8 py-8 text-white">
+          <div className="glass-panel page-hero-band px-5 py-7 text-white sm:px-8 sm:py-8">
             <p className="text-sm uppercase tracking-[0.22em] text-teal-200">{committee.chiefPatron.role}</p>
-            <h3 className="mt-4 font-display text-4xl lg:text-5xl">{committee.chiefPatron.name}</h3>
+            <h3 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl">{committee.chiefPatron.name}</h3>
             <p className="mt-4 text-slate-200/78">{committee.chiefPatron.detail}</p>
           </div>
         </Reveal>
@@ -24,7 +24,7 @@ function CommitteePage() {
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal>
             <div className="surface-card">
-              <h3 className="font-display text-3xl text-slate-950">Patrons</h3>
+                <h3 className="font-display text-2xl text-slate-950 sm:text-3xl">Patrons</h3>
               <div className="mt-5 space-y-3">
                 {committee.patrons.map((patron) => (
                   <div key={patron} className="rounded-2xl bg-slate-50 px-4 py-4 text-sm leading-7 text-slate-600">
@@ -37,9 +37,9 @@ function CommitteePage() {
 
           <Reveal delay={0.08}>
             <div className="surface-card">
-              <h3 className="font-display text-3xl text-slate-950">Convener</h3>
+                <h3 className="font-display text-2xl text-slate-950 sm:text-3xl">Convener</h3>
               <p className="mt-5 rounded-2xl bg-slate-50 px-4 py-4 text-sm leading-7 text-slate-600">{committee.convener}</p>
-              <h3 className="mt-8 font-display text-3xl text-slate-950">Organizing Chairs</h3>
+              <h3 className="mt-8 font-display text-2xl text-slate-950 sm:text-3xl">Organizing Chairs</h3>
               <div className="mt-5 space-y-3">
                 {committee.chairs.map((chair) => (
                   <div key={chair} className="rounded-2xl bg-slate-50 px-4 py-4 text-sm leading-7 text-slate-600">
@@ -53,7 +53,7 @@ function CommitteePage() {
 
         <Reveal>
           <div className="surface-card">
-            <h3 className="font-display text-3xl text-slate-950">Committee Members</h3>
+            <h3 className="font-display text-2xl text-slate-950 sm:text-3xl">Committee Members</h3>
             <div className="mt-6 grid gap-4 lg:grid-cols-3">
               {committee.members.map((member) => (
                 <div key={member} className="rounded-2xl border border-slate-200 bg-white px-5 py-5 text-sm leading-7 text-slate-600">

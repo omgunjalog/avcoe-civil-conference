@@ -65,7 +65,7 @@ function SubmitPaperPage() {
               <div className="surface-card">
                 <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
                   <div>
-                    <h3 className="font-display text-3xl text-slate-950">Payment Info</h3>
+                    <h3 className="font-display text-2xl text-slate-950 sm:text-3xl">Payment Info</h3>
                     <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">
                       Complete the payment after reviewing the manuscript guidelines, then keep the transaction details ready for registration and later verification.
                     </p>
@@ -83,7 +83,7 @@ function SubmitPaperPage() {
                     <img
                       src={paymentInfo.qrCodePath || '/uploads-demo/qr-placeholder.svg'}
                       alt="Conference payment QR"
-                      className="mt-4 h-48 w-48 rounded-3xl border border-slate-200 bg-white p-3"
+                      className="mt-4 h-40 w-40 rounded-3xl border border-slate-200 bg-white p-3 sm:h-48 sm:w-48"
                     />
                   </div>
                 </div>
