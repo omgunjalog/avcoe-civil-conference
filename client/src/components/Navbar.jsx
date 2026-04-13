@@ -1,7 +1,7 @@
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { navigationLinks } from '../data/conferenceData'
+import { navigationLinks, siteMeta } from '../data/conferenceData'
 
 function Navbar() {
   const [open, setOpen] = useState(false)
@@ -33,9 +33,9 @@ function Navbar() {
           <div className="hidden h-12 w-px bg-white/10 lg:col-start-2 lg:block" />
 
           <div className="min-w-0 lg:col-start-3">
-            <p className="text-sm font-semibold text-white sm:text-[0.95rem]">CIVICON 2026</p>
+            <p className="text-sm font-semibold text-white sm:text-[0.95rem]">{siteMeta.conferenceName}</p>
             <p className="hidden text-[0.62rem] uppercase tracking-[0.24em] text-slate-300/75 sm:block lg:text-[0.68rem] lg:tracking-[0.28em]">
-              Civil Department Conference
+              {siteMeta.theme}
             </p>
           </div>
 

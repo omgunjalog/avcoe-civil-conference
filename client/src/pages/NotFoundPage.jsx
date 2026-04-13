@@ -6,7 +6,7 @@ function NotFoundPage() {
       <div>
         <p className="section-kicker border-white/10 bg-white/8 text-teal-200">404</p>
         <h1 className="mt-6 font-display text-6xl">Page not found</h1>
-        <p className="mt-4 text-slate-300/78">The page you requested does not exist in the CIVICON 2026 site map.</p>
+        <p className="mt-4 text-slate-300/78">The page you requested does not exist in the SRES-26 site map.</p>
         <Link to="/" className="button-primary mt-8">
           Back to Home
         </Link>

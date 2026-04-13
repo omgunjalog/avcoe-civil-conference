@@ -1,5 +1,7 @@
 import {
   Blocks,
+  Cpu,
+  Factory,
   ClipboardCheck,
   Leaf,
   Network,
@@ -7,6 +9,7 @@ import {
   ScanLine,
   ShieldCheck,
   Waves,
+  Zap,
 } from 'lucide-react'
 
 export const navigationLinks = [
@@ -20,23 +23,22 @@ export const navigationLinks = [
 ]
 
 export const siteMeta = {
-  conferenceName: 'CIVICON 2026',
-  subtitle: 'International Conference',
-  theme:
-    'Smart, Sustainable and Resilient Civil Infrastructure for a Rapidly Urbanising World',
-  tagline: 'Where structural thinking meets future-ready engineering research.',
-  date: '12-13 February 2026',
-  venue: 'Amrutvahini College of Engineering, Sangamner, Maharashtra',
+  conferenceName: 'SRES-26',
+  subtitle: 'International Conference On',
+  theme: 'Sustainable and Resilient Engineering System',
+  tagline: 'Organized by the Department of Civil Engineering, Amrutvahini College of Engineering, Sangamner.',
+  date: '16 September 2026',
+  venue: 'Amrutvahini College of Engineering, Sangamner, Maharashtra, India',
   description:
-    'CIVICON 2026 brings together researchers, practitioners, policymakers, and emerging scholars to examine resilient infrastructure, sustainable materials, digital construction workflows, and next-generation civil engineering systems.',
-  contactEmail: 'civicon2026@avcoe.org',
-  contactPhone: '+91 98765 43210',
+    'SRES-26 is focused on presenting and disseminating high-quality research and applied studies addressing sustainability and resilience in modern engineering systems across civil, electrical, and mechanical domains.',
+  contactEmail: 'sres26@avcoe.org',
+  contactPhone: '+91 98601 79804 / +91 99987 80784',
 }
 
 export const heroMetrics = [
-  { value: '20+', label: 'Expert sessions' },
-  { value: '08', label: 'Research tracks' },
-  { value: '15 Feb', label: 'Paper deadline' },
+  { value: '10', label: 'Conference themes' },
+  { value: '16 Sep', label: 'Conference date' },
+  { value: '25 May', label: 'Abstract deadline' },
   { value: 'AVCOE', label: 'Host institution' },
 ]
 
@@ -44,231 +46,182 @@ export const aboutCards = [
   {
     title: 'About Institute',
     text:
-      'Amrutvahini College of Engineering is a well-established autonomous institution known for practice-led engineering education, industry engagement, and a strong regional research network.',
+      'Established in 1983 by Amrutvahini Sheti and Shikshan Vikas Sanstha, the institute is AICTE approved, permanently affiliated to Savitribai Phule Pune University, accredited four times by NBA, and NAAC A+ certified.',
   },
   {
-    title: 'About University',
+    title: 'Location & Venue',
     text:
-      'Affiliated academic systems and partner universities support multidisciplinary collaboration, publication pathways, and outreach across civil, environmental, and computational research domains.',
+      'AVCOE is located on the Nashik-Pune Highway (NH-50), around 5 km from Sangamner, 56 km from Nashik Road railway station, 50 km from Shirdi, and 150 km from Pune. The nearest airport is at Shirdi.',
   },
   {
-    title: 'About Civil Department',
+    title: 'Who Should Attend?',
     text:
-      'The Department of Civil Engineering drives innovation in smart construction, transportation, geotechnics, environmental engineering, and resource-efficient infrastructure design.',
+      'The conference is specifically targeted to researchers, faculty members, industry professionals, and graduate as well as undergraduate engineering students.',
   },
 ]
 
-export const speakers = [
-  {
-    name: 'Dr. Meera Kulkarni',
-    designation: 'Professor, IIT Bombay',
-    expertise: 'Smart materials and structural health monitoring',
-    linkedin: 'https://www.linkedin.com',
-    accent: 'from-teal-300 via-cyan-300 to-sky-500',
-  },
-  {
-    name: 'Prof. Arvind Rao',
-    designation: 'Director, Centre for Urban Systems',
-    expertise: 'Sustainable mobility and transport planning',
-    linkedin: 'https://www.linkedin.com',
-    accent: 'from-emerald-300 via-teal-400 to-cyan-500',
-  },
-  {
-    name: 'Dr. Nandita Sen',
-    designation: 'Senior Scientist, CSIR-CBRI',
-    expertise: 'Seismic resilience and disaster mitigation',
-    linkedin: 'https://www.linkedin.com',
-    accent: 'from-amber-200 via-orange-300 to-rose-400',
-  },
-  {
-    name: 'Dr. Peter Fernandes',
-    designation: 'Principal Consultant, BuildTech Global',
-    expertise: 'Digital twins, BIM and construction analytics',
-    linkedin: 'https://www.linkedin.com',
-    accent: 'from-indigo-300 via-sky-400 to-teal-300',
-  },
-]
+export const speakers = []
 
 export const committee = {
-  chiefPatron: {
-    name: 'Dr. S. K. Jha',
-    role: 'Chief Patron',
-    detail: 'Principal, Amrutvahini College of Engineering',
-  },
+  chiefPatrons: [
+    {
+      name: "Hon'ble Shri. Balasaheb B. Thorat",
+      detail: 'Ex. Minister of Revenue, Maharashtra State. President, ASSVS',
+    },
+    {
+      name: "Hon'ble Dr. Sudhir Tambe",
+      detail: 'Ex. MLC, Maharashtra State. Trustee, ASSVS',
+    },
+  ],
   patrons: [
-    'Management Council, Amrutvahini Sheti & Shikshan Vikas Sanstha',
-    'Dean, Faculty of Engineering and Technology',
-    'Advisory Board, AVCOE Research and Innovation Cell',
+    "Hon'ble Mrs. Sharayu Deshmukh - Managing Trustee, ASSVS, Sangamner",
+    'Shri. Anil B. Shinde - Chief Executive Officer, ASSVS',
+    'Dr. Jyotiba B. Gurav - Director Academics, ASSVS',
+    'Prof. V. B. Dhumal - Manager, ASSVS, Sangamner',
   ],
-  convener: 'Dr. Rutuja Deshmukh, Head, Department of Civil Engineering',
-  chairs: [
-    'Dr. Ajay Patil, Conference Chair',
-    'Dr. Snehal Borse, Technical Program Chair',
-    'Prof. Omkar Shinde, Publication Chair',
-    'Prof. Priyanka Kale, Industry Engagement Chair',
+  conferenceChair: 'Dr. M. A. Venkatesh - Principal, AVCOE, Sangamner',
+  conferenceSecretary: 'Dr. S. B. Kandekar - Head, Department of Civil Engineering, AVCOE, Sangamner',
+  conveners: [
+    'Dr. A. J. Mehetre - Department of Civil Engineering, AVCOE, Sangamner',
+    'Dr. R. T. Sahu - Department of Civil Engineering, AVCOE, Sangamner',
   ],
-  members: [
-    'Research coordinators and track leads from structural, geotechnical, water resources, environmental, and transportation engineering.',
-    'Faculty members overseeing review management, publication workflow, hospitality, sponsorships, and student volunteer operations.',
-    'Industry advisors supporting applied sessions on sustainability, BIM, smart cities, and resilient infrastructure delivery.',
+  organizingCommittee: [
+    'Dr. A. V. Navale',
+    'Prof. V. R. Rahane',
+    'Prof. M. R. A. Ghode',
+    'Prof. N. K. Khairnar',
+    'Prof. P. R. Chandane',
+    'Prof. Mrs. C. M. Gunjal',
+    'Prof. C. S. Kadlag',
+    'Prof. Mrs. M. R. Gadhe',
+    'Prof. A. C. Pemgirikar',
+    'Prof. A. C. Bochare',
+    'Dr. Debarata Debnath',
+    'Dr. Sahoo Subhashchandra',
+    'Dr. Pande A. S.',
+    'Dr. R. S. Ingole',
+    'Prof. V. P. Kulkarni',
+    'Prof. Mrs. M. D. Kokate',
+    'Prof. T. R. More',
+    'Prof. D. T. Rahane',
+    'Prof. Mrs. J. R. Gaikwad',
+    'Prof. J. B. Sangale',
+    'Prof. A. P. Yadav',
+    'Prof. M. A. Navale',
+    'Prof. S. R. Wale',
+    'Dr. Mrs. V. B. Navale',
+    'Dr. P. N. Nagre',
+    'Dr. K. B. Deshmukh',
+  ],
+  advisoryCommittee: [
+    'Dr. Premlal Patel - Director, VNIT Nagpur',
+    'Dr. D. G. Regulwar - Retired Professor, NIT Warangal / Chhatrapati Sambhaji Nagar',
+    'Dr. Jayakumar K. V. - Outreach Advisor Officer, IIT Dharwad',
+    'Dr. S. K. Jain - Professor, IIT Roorkee',
+    'Dr. Sunil Thakare - BOS Chairman, SPPU Pune',
+    'Dr. S. Y. Kute - Professor, K. K. Wagh College of Engineering, Nashik',
+    'Dr. Sanjaykumar Yadav - Professor, SVNIT Surat',
+    'Dr. Ramakant Jha - Professor, NIT Patna',
+    'Dr. Sameer Bajpayee - Professor, NIT Raipur',
+    'Dr. Hanuman D. Chalak - Professor, NIT Kurukshetra',
+    'Dr. V. V. Srinivas - Professor, IISc Bangalore',
+    'Dr. Upaka Rathnayake - Professor, ATU Sligo',
+    'Dr. C. D. Modhera - Professor, SVNIT Surat',
+    'Dr. Praveen Nagarajan - Professor, NIT Calicut',
+    'Dr. Manikant Verma - Associate Professor, NIT Raipur',
+    'Dr. L. Govindraju - Retired Professor, Visvesvaraya College of Engineering, Bangalore',
+    'Dr. K. K. Sangle - Professor, VJTI Matunga Mumbai',
+    'Dr. Istheyaq Ahmad - Associate Professor, NIT Raipur',
+    'Dr. Rajkumar Sahoo - Associate Professor, NIT Raipur',
+    'Dr. Meenu Ramdas - Associate Professor, IIT Bhubaneshwar',
+    'Dr. Mohammad Achite - Professor, University of Blida, Algeria',
+    'Dr. Viniarasi R. - Assistant Professor, IIT Roorkee',
+    'Dr. Y. V. Navandar - Assistant Professor, NIT Calicut',
+    'Dr. Patil Sunilkumar S. - Professor and Head, Walchand Institute of Technology, Solapur',
+    'Dr. Sagar R. Chavan - Associate Professor, IIT Ropar',
+    'Dr. Dharamveer Singh - Associate Professor, Symbiosis University',
+    'Dr. Chintaman Bari - Scientist, CSIR-CRRI',
   ],
 }
 
 export const tracks = [
   {
-    title: 'Smart Structures',
-    description: 'Monitoring, diagnostics, digital twins, sensing systems, and structural performance engineering.',
+    title: 'Sustainable and Climate-Resilient Infrastructure Systems',
+    description: 'Infrastructure planning, design, and operation strategies focused on sustainability, adaptability, and long-term resilience.',
     icon: ScanLine,
   },
   {
-    title: 'Advanced Materials',
-    description: 'Low-carbon concrete, composites, circular materials, and performance-based durability studies.',
-    icon: Blocks,
+    title: 'Renewable Energy Technologies and Energy Transition Pathways',
+    description: 'Applied work on renewable systems, transition planning, and energy pathways for resilient engineering ecosystems.',
+    icon: Zap,
   },
   {
-    title: 'Water & Environment',
-    description: 'Hydrology, treatment systems, watershed resilience, and climate-adaptive environmental engineering.',
-    icon: Waves,
-  },
-  {
-    title: 'Geotechnics & Foundations',
-    description: 'Soil stabilization, tunnelling, slope safety, and data-informed ground improvement techniques.',
-    icon: Pickaxe,
-  },
-  {
-    title: 'Urban Mobility',
-    description: 'Transport modelling, safer streets, multimodal systems, and mobility intelligence.',
+    title: 'Smart Grids, Power Systems, and Energy Management',
+    description: 'Power-system intelligence, smart-grid control, and efficient energy management approaches for modern infrastructure.',
     icon: Network,
   },
   {
-    title: 'Construction Management',
-    description: 'Lean delivery, BIM workflows, digital QA/QC, contracts, and risk-aware project execution.',
-    icon: ClipboardCheck,
-  },
-  {
-    title: 'Resilient Infrastructure',
-    description: 'Disaster mitigation, retrofitting, infrastructure risk, and resilience planning frameworks.',
+    title: 'Resilient Infrastructure Assessment, Risk, and Reliability Analysis',
+    description: 'Risk-informed evaluation, reliability analysis, and resilience assessment of infrastructure systems under multiple stresses.',
     icon: ShieldCheck,
   },
   {
-    title: 'Sustainable Development',
-    description: 'Green campuses, life-cycle assessment, circular design, and resource-efficient infrastructure.',
-    icon: Leaf,
+    title: 'Advanced Sustainable Construction Materials and Methods',
+    description: 'Construction materials, methods, and processes focused on sustainability, performance, and practical deployment.',
+    icon: Blocks,
+  },
+  {
+    title: 'Structural Health Monitoring and Intelligent Sensing Systems',
+    description: 'Monitoring systems, sensor networks, and intelligent diagnostics for structural safety and performance.',
+    icon: ScanLine,
+  },
+  {
+    title: 'Energy-Efficient Mechanical, Thermal, and Fluid Engineering Systems',
+    description: 'Mechanical and fluid engineering approaches centered on efficiency, thermal performance, and sustainable operation.',
+    icon: Cpu,
+  },
+  {
+    title: 'Digitalization, Automation, and Data-Driven Engineering Solutions',
+    description: 'Automation, digital platforms, and data-driven methods supporting smarter engineering workflows and decisions.',
+    icon: ClipboardCheck,
+  },
+  {
+    title: 'Sustainable Manufacturing and Industrial Engineering Systems',
+    description: 'Industrial systems, manufacturing efficiency, and sustainable engineering practices for production environments.',
+    icon: Factory,
+  },
+  {
+    title: 'Integrated Civil-Electrical-Mechanical Engineering for Smart Cities',
+    description: 'Interdisciplinary civil, electrical, and mechanical engineering integration for next-generation smart-city systems.',
+    icon: Pickaxe,
   },
 ]
 
 export const scheduleHighlights = [
-  'Day 1 opens with keynote plenaries, followed by thematic parallel tracks and a research networking salon.',
-  'Day 2 focuses on advanced paper presentations, publication guidance, and academic-industry roundtables.',
-  'Selected sessions will include moderated discussion panels and reviewer feedback clinics for early-stage scholars.',
+  'The detailed technical programme will be published after paper review, speaker confirmation, and final committee approval.',
+  'Authors should currently focus on the brochure dates for abstract submission, acceptance, registration, and the conference day.',
+  'The conference brochure confirms the event month and venue, while the full session schedule will be announced separately.',
 ]
 
 export const themesOverview = [
-  'CIVICON 2026 is curated around resilient infrastructure, sustainable materials, digital construction, transport intelligence, and climate-aware engineering systems.',
-  'The programme is designed to balance keynote insight, applied technical sessions, and publication-oriented paper presentations across core civil engineering domains.',
-  'Authors, scholars, and practitioners can quickly understand both the thematic breadth of the event and the flow of sessions through a two-mode page experience.',
+  'The conference focuses on presenting and disseminating high-quality research and applied studies addressing sustainability and resilience in modern engineering systems.',
+  'Drawing contributions from Civil, Electrical, and Mechanical Engineering, the event emphasizes integrated approaches for designing, operating, and managing infrastructure and energy systems capable of withstanding environmental, climatic, and technological stresses.',
+  'By highlighting interdisciplinary methodologies and real-world applications, SRES-26 aims to bridge theory and practice for researchers, practitioners, policymakers, and graduate students.',
 ]
 
-export const conferenceSchedule = [
-  {
-    day: 'Day 1',
-    date: '12 February 2026',
-    label: 'Inaugural, keynote, and technical sessions',
-    mode: 'Hybrid mode',
-    sections: [
-      {
-        title: 'Inaugural Session',
-        type: 'plenary',
-        entries: [
-          { time: '09:00 - 09:20', title: 'Opening and ceremonial welcome', speaker: 'Conference Secretariat and organizing committee' },
-          { time: '09:20 - 09:40', title: 'Host institution address', speaker: 'Principal, Amrutvahini College of Engineering' },
-          { time: '09:40 - 10:10', title: 'Conference vision keynote', speaker: 'Chief Guest and academic leadership' },
-        ],
-      },
-      {
-        title: 'Keynote Session I',
-        type: 'keynote',
-        coordinator: 'Session Coordinator: Dr. Rutuja Deshmukh',
-        entries: [
-          { time: '10:15 - 11:00', title: 'Resilient infrastructure for rapidly urbanising regions', speaker: 'International keynote speaker' },
-          { time: '11:00 - 11:15', title: 'Interactive discussion and moderated Q&A', speaker: 'Session chair and delegates' },
-        ],
-      },
-      {
-        title: 'Tea Break',
-        type: 'break',
-        entries: [{ time: '11:15 - 11:35', title: 'Networking break', speaker: 'Delegates lounge' }],
-      },
-      {
-        title: 'Technical Session I',
-        type: 'parallel',
-        entries: [
-          { time: '11:45 - 13:15', title: 'Track A: Advanced structural engineering and materials', speaker: 'Parallel paper presentations' },
-          { time: '11:45 - 13:15', title: 'Track B: Transportation infrastructure and mobility systems', speaker: 'Parallel paper presentations' },
-        ],
-      },
-      {
-        title: 'Lunch Break',
-        type: 'break',
-        entries: [{ time: '13:15 - 14:00', title: 'Hosted lunch and networking', speaker: 'Conference hospitality desk' }],
-      },
-      {
-        title: 'Technical Session II',
-        type: 'parallel',
-        entries: [
-          { time: '14:00 - 15:30', title: 'Track C: Geotechnics, foundations, and underground systems', speaker: 'Parallel paper presentations' },
-          { time: '14:00 - 15:30', title: 'Track D: Water, environment, and sustainable development', speaker: 'Parallel paper presentations' },
-        ],
-      },
-    ],
-  },
-  {
-    day: 'Day 2',
-    date: '13 February 2026',
-    label: 'Publication, industry, and closing sessions',
-    mode: 'On-campus mode',
-    sections: [
-      {
-        title: 'Keynote Session II',
-        type: 'keynote',
-        coordinator: 'Session Coordinator: Prof. Snehal Borse',
-        entries: [
-          { time: '09:30 - 10:15', title: 'Digital project delivery and BIM-enabled civil systems', speaker: 'Industry keynote speaker' },
-          { time: '10:15 - 10:30', title: 'Q&A and discussion', speaker: 'Session chair and delegates' },
-        ],
-      },
-      {
-        title: 'Publication Clinic',
-        type: 'plenary',
-        entries: [
-          { time: '10:40 - 11:20', title: 'Camera-ready guidance and indexing expectations', speaker: 'Publication chair and editorial panel' },
-          { time: '11:20 - 11:45', title: 'Author mentoring desk', speaker: 'Track coordinators' },
-        ],
-      },
-      {
-        title: 'Technical Session III',
-        type: 'parallel',
-        entries: [
-          { time: '12:00 - 13:15', title: 'Track E: Construction management and smart site operations', speaker: 'Parallel paper presentations' },
-          { time: '12:00 - 13:15', title: 'Track F: Resilience, retrofit, and climate adaptation', speaker: 'Parallel paper presentations' },
-        ],
-      },
-      {
-        title: 'Lunch and Networking',
-        type: 'break',
-        entries: [{ time: '13:15 - 14:00', title: 'Networking lunch', speaker: 'Delegates and invited experts' }],
-      },
-      {
-        title: 'Industry and Closing Forum',
-        type: 'plenary',
-        entries: [
-          { time: '14:00 - 15:00', title: 'Academic-industry roundtable on future-ready civil infrastructure', speaker: 'Industry advisors and faculty leaders' },
-          { time: '15:00 - 15:30', title: 'Awards, closing remarks, and roadmap', speaker: 'Conference committee' },
-        ],
-      },
-    ],
-  },
-]
+export const conferenceSchedule = []
+
+export const scheduleAnnouncement = {
+  title: 'Detailed schedule will be announced soon',
+  description:
+    'The brochure currently confirms the conference date, venue, and submission milestones. Session-wise scheduling will be released after paper review and final committee coordination.',
+  checkpoints: [
+    'Submission of Abstract: 25th May 2026',
+    'Notification of Acceptance: 15th June 2026',
+    'Last Date of Registration & Submission of Full-Length Paper: 15th July 2026',
+    'Conference Date: 16th September 2026',
+  ],
+}
 
 export const pricing = [
   {
@@ -289,100 +242,89 @@ export const pricing = [
 ]
 
 export const registrationPlans = {
-  earlyBird: {
-    label: 'Early Bird',
-    badge: 'Priority pricing',
-    note: 'Available before 15 March 2026. Ideal for early confirmations and department-sponsored delegates.',
+  domestic: {
+    label: 'Domestic',
+    badge: 'Indian delegates',
+    note: 'Registration fees for Indian delegates are listed as per the brochure. The registration fee does not include publication charges.',
     plans: [
       {
-        category: 'Faculty',
-        price: 'Rs. 4500',
+        category: 'UG & PG Students',
+        price: 'INR 500',
         accent: 'border-teal-300/70',
-        tag: 'Early saver',
-        features: ['All technical sessions', 'Conference kit and proceedings', 'Lunch and refreshments', 'Priority help desk support'],
+        tag: 'Student rate',
+        features: ['Participation in conference activities', 'Best suited for undergraduate and postgraduate delegates', 'Registration fee does not include publication charges'],
       },
       {
-        category: 'Students',
-        price: 'Rs. 3500',
+        category: 'Research Scholars & Academicians',
+        price: 'INR 1000',
         accent: 'border-sky-300/70',
-        tag: 'Scholar rate',
-        features: ['Technical sessions and certificates', 'Proceedings access', 'Mentor feedback clinic', 'Student networking circle'],
+        tag: 'Academic rate',
+        features: ['Suitable for research scholars and faculty members', 'Supports participation in conference sessions', 'Registration fee does not include publication charges'],
       },
       {
-        category: 'Attendee',
-        price: 'Rs. 800',
+        category: 'Industry / Corporate Professionals',
+        price: 'INR 1500',
         accent: 'border-amber-300/70',
-        tag: 'Observer pass',
-        features: ['Day access to keynote and featured sessions', 'Participation certificate', 'Networking lounge access', 'Industry showcase entry'],
+        tag: 'Professional rate',
+        features: ['Designed for industry and corporate delegates', 'Conference participation and networking access', 'Registration fee does not include publication charges'],
       },
     ],
   },
-  regular: {
-    label: 'Regular',
-    badge: 'Standard pricing',
-    note: 'For final confirmations closer to the conference dates. Includes the full standard participant package.',
+  international: {
+    label: 'International',
+    badge: 'Foreign delegates',
+    note: 'International participation is currently listed under the foreign delegate category. Registration fee does not include publication charges.',
     plans: [
       {
-        category: 'Faculty',
-        price: 'Rs. 5000',
+        category: 'Foreign Delegates',
+        price: 'USD 50',
         accent: 'border-teal-300/70',
-        tag: 'Regular',
-        features: ['All technical sessions', 'Conference kit and proceedings', 'Lunch and refreshments', 'Publication support desk'],
-      },
-      {
-        category: 'Students',
-        price: 'Rs. 4000',
-        accent: 'border-sky-300/70',
-        tag: 'Student offer',
-        features: ['Technical sessions and certificates', 'Proceedings access', 'Mentor feedback clinic', 'Presentation support session'],
-      },
-      {
-        category: 'Attendee',
-        price: 'Rs. 1000',
-        accent: 'border-amber-300/70',
-        tag: 'Basic access',
-        features: ['Session access pass', 'Networking lounge entry', 'Participation certificate', 'Industry insights sessions'],
+        tag: 'International',
+        features: ['For overseas delegates and collaborators', 'Conference participation access', 'Registration fee does not include publication charges'],
       },
     ],
   },
 }
 
 export const registrationProcess = [
-  'Complete the registration form with participant details and category.',
-  'Submit the payment using the listed bank details or QR code.',
-  'Upload the payment proof and provide the transaction reference in the form.',
-  'Receive verification status and event joining instructions from the organizing team.',
+  'Choose the appropriate delegate category before starting the registration form.',
+  'Complete the payment using NEFT, RTGS, or online transfer with the official beneficiary details.',
+  'Provide the UTR / payment reference and upload proof in the registration form for verification.',
+  'Wait for verification from the organizing team before final participation or publication-related follow-up.',
 ]
 
 export const importantDates = [
-  { label: 'Abstract / Paper Submission Deadline', date: '15 February 2026' },
-  { label: 'Acceptance Notification', date: '05 March 2026' },
-  { label: 'Early Bird Registration', date: '15 March 2026' },
-  { label: 'Late Registration Closes', date: '01 April 2026' },
+  { label: 'Submission of Abstract', date: '25th May 2026' },
+  { label: 'Notification of Acceptance', date: '15th June 2026' },
+  { label: 'Last Date of Registration & Submission of Full-Length Paper', date: '15th July 2026' },
+  { label: 'Conference Date', date: '16th September 2026' },
 ]
 
 export const paymentInfo = {
-  bank: 'State Bank of India',
-  accountName: 'AVCOE Civil Conference',
-  accountNumber: '123456789012',
-  ifsc: 'SBIN0001234',
-  branch: 'Sangamner Branch',
-  qrCodePath: '/uploads-demo/qr-placeholder.svg',
+  bank: 'Union Bank of India',
+  accountName: 'Amrutvahini College of Engineering Sangamner',
+  accountNumber: '322501010033387',
+  ifsc: '',
+  branch: '',
+  acceptedModes: 'NEFT / RTGS / Online Payment is accepted.',
+  qrCodePath: '',
+  note:
+    'Participants are expected to mention the UTR number and bank name for proper tracking of payment confirmation.',
 }
 
 export const submissionGuidelines = [
-  'Submit only original work relevant to CIVICON 2026 themes.',
-  'Upload PDF files only; max size 10 MB.',
-  'Use clear authorship, abstract, keywords, and references.',
-  'Mention the preferred conference track during submission.',
-  'Camera-ready instructions will be shared after acceptance.',
+  'Submission should be prepared in a Word document on A4 paper using Times New Roman, 12-point font, single spacing, and standard margins.',
+  'Authors may submit Research Articles, Review Articles, Survey Articles, or Case Studies.',
+  'Abstracts should not exceed 350 words, and full-length papers should be limited to 7 pages or a maximum of 7000 words.',
+  'References must be listed alphabetically at the end of the manuscript and formatted in APA style.',
+  'Authors should check the originality of their work before submission; the organizing committee will also perform plagiarism checks as part of review.',
 ]
 
 export const submissionProcess = [
-  'Prepare your manuscript and abstract in PDF format.',
-  'Complete the author details and paper metadata form.',
-  'Upload the final PDF through the submission panel.',
-  'Use the generated tracking ID to monitor review and decision updates.',
+  'Prepare the manuscript according to the author guidelines and abstract limit.',
+  'Submit the author details and final manuscript through the portal for tracking and status updates.',
+  'Keep the generated tracking ID safe to follow acceptance and review progress online.',
+  'For submission assistance, authors can contact sres26@avcoe.org or the department coordinators listed on the brochure.',
 ]
 
 export const footerLinks = [
@@ -394,7 +336,7 @@ export const footerLinks = [
 ]
 
 export const socialLinks = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com' },
-  { label: 'Instagram', href: 'https://www.instagram.com' },
-  { label: 'YouTube', href: 'https://www.youtube.com' },
+  { label: 'Website', href: 'https://www.avcoe.org' },
+  { label: 'Conference Mail', href: 'mailto:sres26@avcoe.org' },
+  { label: 'Civil Dept', href: 'mailto:amol.mehetre@avcoe.org' },
 ]

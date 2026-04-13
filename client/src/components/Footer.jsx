@@ -18,7 +18,7 @@ function Footer() {
                 </div>
                 <div>
                   <p className="font-semibold">Amrutvahini College of Engineering</p>
-                  <p className="text-sm text-slate-300/80">Civil Department Conference Platform</p>
+                  <p className="text-sm text-slate-300/80">{siteMeta.conferenceName} | {siteMeta.subtitle}</p>
                 </div>
               </div>
               <p className="mt-6 max-w-xl text-sm leading-8 text-slate-300/75">{siteMeta.description}</p>

@@ -14,7 +14,7 @@ const segmentButtonClass = (isActive) =>
   }`
 
 function RegistrationPage() {
-  const [pricingMode, setPricingMode] = useState('regular')
+  const [pricingMode, setPricingMode] = useState('domestic')
   const pricingState = registrationPlans[pricingMode]
 
   return (
@@ -23,17 +23,17 @@ function RegistrationPage() {
         <PageHero
           kicker="Registration Details"
           title="Flexible conference registration shaped around timing, participation, and delegate type."
-          description="Papers can be submitted first, but verified registration is still required before final publication and presentation readiness. Choose your pricing window before completing payment and verification."
+          description="The brochure lists category-wise registration charges, accepted payment modes, and a clear note that registration fees do not include publication charges."
         >
           <div className="mx-auto max-w-xl rounded-[32px] border border-white/12 bg-white/8 p-2 shadow-[0_24px_70px_rgba(5,14,26,0.2)] backdrop-blur-xl">
             <div className="grid grid-cols-2 gap-2">
-              <button type="button" className={segmentButtonClass(pricingMode === 'earlyBird')} onClick={() => setPricingMode('earlyBird')}>
+              <button type="button" className={segmentButtonClass(pricingMode === 'domestic')} onClick={() => setPricingMode('domestic')}>
                 <TimerReset size={16} />
-                Early Bird
+                Domestic
               </button>
-              <button type="button" className={segmentButtonClass(pricingMode === 'regular')} onClick={() => setPricingMode('regular')}>
+              <button type="button" className={segmentButtonClass(pricingMode === 'international')} onClick={() => setPricingMode('international')}>
                 <CalendarClock size={16} />
-                Regular
+                International
               </button>
             </div>
           </div>
@@ -53,7 +53,7 @@ function RegistrationPage() {
               <div className="rounded-[26px] border border-slate-200 bg-slate-50/90 px-5 py-5 text-sm text-slate-600">
                 <p className="font-semibold text-slate-900">Verification policy</p>
                 <p className="mt-3 leading-7">
-                  Every registration requires payment proof upload and admin verification. This keeps paper publication readiness and attendee confirmation aligned.
+                  Every registration requires payment proof upload and admin verification. The brochure also clarifies that registration charges do not include publication charges.
                 </p>
               </div>
             </div>
@@ -110,23 +110,27 @@ function RegistrationPage() {
               <div className="surface-card">
                 <h3 className="font-display text-3xl text-slate-950">Payment Details</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  Share the transaction reference and upload payment proof in the form. This makes admin verification faster and reduces follow-up with authors.
+                  Share the transaction reference and upload payment proof in the form. This matches the brochure note on UTR and bank-name based payment confirmation.
                 </p>
                 <div className="mt-6 grid gap-3 text-sm text-slate-600">
                   <div className="rounded-2xl bg-slate-50 px-4 py-3">Bank: {paymentInfo.bank}</div>
                   <div className="rounded-2xl bg-slate-50 px-4 py-3">Account Name: {paymentInfo.accountName}</div>
                   <div className="rounded-2xl bg-slate-50 px-4 py-3">Account Number: {paymentInfo.accountNumber}</div>
-                  <div className="rounded-2xl bg-slate-50 px-4 py-3">IFSC: {paymentInfo.ifsc}</div>
-                  <div className="rounded-2xl bg-slate-50 px-4 py-3">Branch: {paymentInfo.branch}</div>
+                  {paymentInfo.ifsc ? <div className="rounded-2xl bg-slate-50 px-4 py-3">IFSC: {paymentInfo.ifsc}</div> : null}
+                  {paymentInfo.branch ? <div className="rounded-2xl bg-slate-50 px-4 py-3">Branch: {paymentInfo.branch}</div> : null}
+                  <div className="rounded-2xl bg-slate-50 px-4 py-3 lg:col-span-2">{paymentInfo.acceptedModes}</div>
+                  <div className="rounded-2xl bg-slate-50 px-4 py-3 lg:col-span-2">{paymentInfo.note}</div>
                 </div>
-                <div className="mt-6 rounded-[28px] border border-slate-200 bg-slate-50 px-5 py-5">
-                  <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Scan To Pay</p>
-                  <img
-                    src={paymentInfo.qrCodePath}
-                    alt="Conference payment QR"
-                    className="mt-4 h-40 w-40 rounded-3xl border border-slate-200 bg-white p-3 sm:h-48 sm:w-48"
-                  />
-                </div>
+                {paymentInfo.qrCodePath ? (
+                  <div className="mt-6 rounded-[28px] border border-slate-200 bg-slate-50 px-5 py-5">
+                    <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Scan To Pay</p>
+                    <img
+                      src={paymentInfo.qrCodePath}
+                      alt="Conference payment QR"
+                      className="mt-4 h-40 w-40 rounded-3xl border border-slate-200 bg-white p-3 sm:h-48 sm:w-48"
+                    />
+                  </div>
+                ) : null}
               </div>
             </div>
           </Reveal>

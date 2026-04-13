@@ -1,6 +1,6 @@
 import Reveal from '../components/Reveal'
 import SectionHeader from '../components/SectionHeader'
-import { importantDates } from '../data/conferenceData'
+import { importantDates, siteMeta } from '../data/conferenceData'
 
 function ImportantDatesPage() {
   return (
@@ -8,12 +8,12 @@ function ImportantDatesPage() {
       <div className="content-grid">
         <Reveal>
           <div className="glass-panel page-hero-band overflow-hidden px-5 py-8 text-white sm:px-8 sm:py-10 lg:px-10 lg:py-12">
-            <p className="section-kicker border-white/10 bg-white/8 text-teal-200">Conference Mode</p>
+            <p className="section-kicker border-white/10 bg-white/8 text-teal-200">Conference Timeline</p>
             <h1 className="mt-6 max-w-5xl font-display text-4xl leading-[0.98] sm:text-6xl">
-              Virtual conference support available for remote presenters.
+              Important milestones leading to {siteMeta.conferenceName} at AVCOE, Sangamner.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-slate-200/82">
-              In addition to the in-person AVCOE venue experience, CIVICON 2026 can support approved remote participation for keynote and paper presentation slots.
+              The brochure confirms the abstract deadline, acceptance notification, final registration and full-length paper deadline, and the conference date in September 2026.
             </p>
           </div>
         </Reveal>

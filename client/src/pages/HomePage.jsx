@@ -17,7 +17,7 @@ function HomePage() {
         <div className="content-grid relative grid min-h-[calc(100vh-72px)] items-center py-16 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:py-28">
           <Reveal>
             <div className="max-w-3xl">
-              <span className="section-kicker">International Conference 2026</span>
+              <span className="section-kicker">September 2026 Conference</span>
               <h1 className="mt-6 font-display text-5xl leading-[0.9] text-white sm:text-7xl lg:text-[7rem]">
                 {siteMeta.conferenceName}
               </h1>
@@ -48,7 +48,7 @@ function HomePage() {
               </div>
 
               <div className="mt-8 max-w-2xl rounded-[28px] border border-white/12 bg-white/6 p-4 text-sm leading-7 text-slate-200/78 backdrop-blur-xl sm:mt-10 sm:p-5 sm:leading-8">
-                Selected authors, keynote delegates, and attendees will experience a curated interface for submissions, registration, and conference discovery with production-grade polish.
+                SRES-26 brings together researchers, faculty, industry delegates, and engineering students for focused discussion on sustainability, resilience, and integrated engineering systems.
               </div>
             </div>
           </Reveal>
@@ -71,12 +71,12 @@ function HomePage() {
                 <div className="flex items-center justify-between">
                   <p className="text-xs uppercase tracking-[0.26em] text-slate-300/72">Featured Experience</p>
                   <span className="rounded-full border border-teal-300/30 bg-teal-300/10 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-teal-200">
-                    Curated
+                    SRES-26
                   </span>
                 </div>
-                <h2 className="mt-4 font-display text-3xl text-white sm:text-4xl">Research-first journey.</h2>
+                <h2 className="mt-4 font-display text-3xl text-white sm:text-4xl">Sustainability meets resilience.</h2>
                 <p className="mt-4 text-sm leading-8 text-slate-200/74">
-                  Premium page rhythm, motion-led hierarchy, and clean academic storytelling designed to feel closer to a product launch than a template brochure.
+                  The conference focuses on resilient infrastructure, renewable energy transitions, smart grids, intelligent sensing, sustainable construction, and interdisciplinary engineering solutions.
                 </p>
               </div>
             </div>
@@ -88,8 +88,8 @@ function HomePage() {
         <div className="content-grid page-halo">
           <Reveal>
             <SectionHeader
-              kicker="About CIVICON"
-              title="A premium academic forum built for high-value civil engineering research exchange."
+              kicker="About SRES-26"
+              title="A conference forum built around sustainable and resilient engineering systems."
               description={siteMeta.description}
             />
           </Reveal>

@@ -12,7 +12,7 @@ function SubmitPaperPage() {
         <PageHero
           kicker="Submit Paper"
           title="A structured submission experience for serious academic contributors."
-          description="Submit your manuscript first, then complete verified registration before final publication or presentation readiness. The workflow mirrors a real conference review cycle."
+          description="Prepare the manuscript according to the brochure guidelines, submit through the portal, and use the generated tracking ID to follow review progress."
         >
           <div className="flex flex-wrap gap-3">
             <Link to="/track-paper" className="button-secondary">
@@ -73,19 +73,27 @@ function SubmitPaperPage() {
                       <div className="rounded-2xl bg-slate-50 px-4 py-3">Bank: {paymentInfo.bank}</div>
                       <div className="rounded-2xl bg-slate-50 px-4 py-3">Account Name: {paymentInfo.accountName}</div>
                       <div className="rounded-2xl bg-slate-50 px-4 py-3">Account Number: {paymentInfo.accountNumber}</div>
-                      <div className="rounded-2xl bg-slate-50 px-4 py-3">IFSC: {paymentInfo.ifsc}</div>
-                      <div className="rounded-2xl bg-slate-50 px-4 py-3 sm:col-span-2">Branch: {paymentInfo.branch}</div>
+                      {paymentInfo.ifsc ? <div className="rounded-2xl bg-slate-50 px-4 py-3">IFSC: {paymentInfo.ifsc}</div> : null}
+                      {paymentInfo.branch ? <div className="rounded-2xl bg-slate-50 px-4 py-3 sm:col-span-2">Branch: {paymentInfo.branch}</div> : null}
+                      <div className="rounded-2xl bg-slate-50 px-4 py-3 sm:col-span-2">{paymentInfo.acceptedModes}</div>
+                      <div className="rounded-2xl bg-slate-50 px-4 py-3 sm:col-span-2">{paymentInfo.note}</div>
                     </div>
                   </div>
 
-                  <div className="rounded-[28px] border border-slate-200 bg-slate-50 px-5 py-5">
-                    <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Scan To Pay</p>
-                    <img
-                      src={paymentInfo.qrCodePath || '/uploads-demo/qr-placeholder.svg'}
-                      alt="Conference payment QR"
-                      className="mt-4 h-40 w-40 rounded-3xl border border-slate-200 bg-white p-3 sm:h-48 sm:w-48"
-                    />
-                  </div>
+                  {paymentInfo.qrCodePath ? (
+                    <div className="rounded-[28px] border border-slate-200 bg-slate-50 px-5 py-5">
+                      <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Scan To Pay</p>
+                      <img
+                        src={paymentInfo.qrCodePath}
+                        alt="Conference payment QR"
+                        className="mt-4 h-40 w-40 rounded-3xl border border-slate-200 bg-white p-3 sm:h-48 sm:w-48"
+                      />
+                    </div>
+                  ) : (
+                    <div className="rounded-[28px] border border-slate-200 bg-slate-50 px-5 py-5 text-sm leading-7 text-slate-600">
+                      QR-based payment information is not included in the current brochure. Please use the listed bank details and accepted online payment modes.
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

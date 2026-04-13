@@ -32,31 +32,31 @@ const buildHtml = (title, intro, lines, actionLabel, actionHref) => `
         ? `<p style="margin-top: 24px;"><a href="${actionHref}" style="display: inline-block; background: #0a192f; color: #ffffff; padding: 12px 18px; border-radius: 999px; text-decoration: none;">${actionLabel}</a></p>`
         : ''
     }
-    <p style="margin-top: 24px; color: #475569;">CIVICON 2026<br/>Amrutvahini College of Engineering, Civil Department</p>
+    <p style="margin-top: 24px; color: #475569;">SRES-26<br/>Amrutvahini College of Engineering, Civil Department</p>
   </div>
 `
 
 const sendRegistrationSubmittedEmail = async (registration) => {
-  const subject = 'CIVICON 2026 registration received'
+  const subject = 'SRES-26 registration received'
   const lines = [
     `Name: ${registration.name}`,
     `Category: ${registration.category}`,
     `Payment reference: ${registration.paymentReference}`,
-    'Current payment state: Proof submitted',
+      'Current payment state: Proof submitted',
   ]
 
   await sendSafely({
     to: registration.email,
     subject,
     text: [
-      'Your CIVICON 2026 registration has been received.',
+      'Your SRES-26 registration has been received.',
       ...lines,
       'Next step: the organizing team will review your payment proof and update your verification status.',
       `Registration page: ${clientUrl}/registration`,
     ].join('\n'),
     html: buildHtml(
       'Registration received',
-      'Your CIVICON 2026 registration has been recorded successfully.',
+      'Your SRES-26 registration has been recorded successfully.',
       [
         ...lines,
         'Next step: the organizing team will review your payment proof and update your verification status.',
@@ -68,7 +68,7 @@ const sendRegistrationSubmittedEmail = async (registration) => {
 }
 
 const sendRegistrationStatusEmail = async (registration) => {
-  const subject = `CIVICON 2026 registration ${registration.paymentStatus.replaceAll('_', ' ')}`
+  const subject = `SRES-26 registration ${registration.paymentStatus.replaceAll('_', ' ')}`
   const lines = [
     `Name: ${registration.name}`,
     `Category: ${registration.category}`,
@@ -80,7 +80,7 @@ const sendRegistrationStatusEmail = async (registration) => {
     to: registration.email,
     subject,
     text: [
-      'Your CIVICON 2026 registration has been updated.',
+      'Your SRES-26 registration has been updated.',
       ...lines,
       registration.paymentStatus === 'verified'
         ? 'Your registration is verified. You are now ready for the next conference steps tied to participation or publication.'
@@ -103,7 +103,7 @@ const sendRegistrationStatusEmail = async (registration) => {
 }
 
 const sendPaperSubmittedEmail = async (paper) => {
-  const subject = 'CIVICON 2026 paper submission received'
+  const subject = 'SRES-26 paper submission received'
   const lines = [
     `Title: ${paper.title}`,
     `Tracking ID: ${paper.trackingId}`,
@@ -115,7 +115,7 @@ const sendPaperSubmittedEmail = async (paper) => {
     to: paper.email,
     subject,
     text: [
-      'Your paper submission has been received.',
+      'Your paper submission for SRES-26 has been received.',
       ...lines,
       'Next step: keep the tracking ID safe and use it to monitor review progress.',
       `Track your paper: ${clientUrl}/track-paper`,
@@ -123,7 +123,7 @@ const sendPaperSubmittedEmail = async (paper) => {
     ].join('\n'),
     html: buildHtml(
       'Paper submission received',
-      'Your manuscript is now in the CIVICON 2026 system.',
+      'Your manuscript is now in the SRES-26 system.',
       [
         ...lines,
         'Next step: keep the tracking ID safe and use it to monitor review progress.',
@@ -136,7 +136,7 @@ const sendPaperSubmittedEmail = async (paper) => {
 }
 
 const sendPaperStatusEmail = async (paper) => {
-  const subject = `CIVICON 2026 paper status: ${paper.status.replaceAll('_', ' ')}`
+  const subject = `SRES-26 paper status: ${paper.status.replaceAll('_', ' ')}`
   const lines = [
     `Title: ${paper.title}`,
     `Tracking ID: ${paper.trackingId}`,

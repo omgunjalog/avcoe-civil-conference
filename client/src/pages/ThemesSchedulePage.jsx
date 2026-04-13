@@ -5,6 +5,7 @@ import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
 import {
   conferenceSchedule,
+  scheduleAnnouncement,
   scheduleHighlights,
   themesOverview,
   tracks,
@@ -26,6 +27,7 @@ const scheduleCardAccent = {
 
 function ThemesSchedulePage() {
   const [activeView, setActiveView] = useState('themes')
+  const hasSchedule = conferenceSchedule.length > 0
 
   return (
     <section className="section-space pt-10">
@@ -35,12 +37,12 @@ function ThemesSchedulePage() {
           title={
             activeView === 'themes'
               ? 'Research themes framed for future-ready civil engineering conversations.'
-              : 'A conference schedule designed for depth, flow, and practical academic exchange.'
+              : 'Conference schedule and session-level agenda updates will be shared after final review.'
           }
           description={
             activeView === 'themes'
-              ? 'Explore the core subject clusters guiding CIVICON 2026, from resilient infrastructure and digital construction to sustainable systems and applied mobility research.'
-              : 'Navigate keynote moments, technical tracks, networking breaks, and publication-focused sessions through a cleaner programme experience.'
+              ? 'Explore the official conference themes covering resilient infrastructure, renewable energy, smart grids, intelligent sensing, sustainable materials, and integrated engineering systems.'
+              : 'The brochure already confirms the themes, milestones, and venue. The detailed session schedule will be published separately once the committee finalizes the programme.'
           }
         >
           <div className="mx-auto max-w-xl rounded-[32px] border border-white/12 bg-white/8 p-2 shadow-[0_24px_70px_rgba(5,14,26,0.2)] backdrop-blur-xl">
@@ -109,7 +111,7 @@ function ThemesSchedulePage() {
               })}
             </div>
           </div>
-        ) : (
+        ) : hasSchedule ? (
           <div className="mt-14 space-y-8">
             {conferenceSchedule.map((day, dayIndex) => (
               <Reveal key={day.day} delay={dayIndex * 0.08}>
@@ -173,6 +175,23 @@ function ThemesSchedulePage() {
               </Reveal>
             ))}
           </div>
+        ) : (
+          <Reveal>
+            <div className="mt-14 surface-card">
+              <div className="rounded-[28px] border border-slate-200 bg-slate-50 px-5 py-6 sm:px-6">
+                <p className="section-kicker !border-teal-200 !bg-teal-50 !text-teal-700">Schedule Update</p>
+                <h2 className="mt-5 font-display text-3xl text-slate-950 sm:text-4xl">{scheduleAnnouncement.title}</h2>
+                <p className="mt-5 text-sm leading-8 text-slate-600 sm:text-[1.02rem]">{scheduleAnnouncement.description}</p>
+                <div className="mt-6 grid gap-4 lg:grid-cols-2">
+                  {scheduleAnnouncement.checkpoints.map((item) => (
+                    <div key={item} className="rounded-2xl border border-slate-200 bg-white px-4 py-4 text-sm leading-7 text-slate-600">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
         )}
 
         <Reveal>

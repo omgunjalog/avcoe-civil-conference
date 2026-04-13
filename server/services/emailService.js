@@ -70,7 +70,7 @@ const getTransporter = () => {
 
 const parseFromAddress = () => {
   const fallbackEmail = process.env.BREVO_SENDER_EMAIL || process.env.SMTP_USER || 'no-reply@example.com'
-  const fallbackName = process.env.BREVO_SENDER_NAME || 'CIVICON 2026'
+  const fallbackName = process.env.BREVO_SENDER_NAME || 'SRES-26'
   const configuredFrom = String(process.env.MAIL_FROM || '').trim()
 
   if (!configuredFrom) {
