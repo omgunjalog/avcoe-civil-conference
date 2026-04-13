@@ -1,4 +1,4 @@
-# CIVICON 2026
+# SRES 2026
 
 Production-ready conference website for the Civil Department of Amrutvahini College of Engineering.
 
