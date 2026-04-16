@@ -63,14 +63,10 @@ function CommitteePage() {
           <div className="surface-card">
             <h3 className="font-display text-2xl text-slate-950 sm:text-3xl">Organizing Committee</h3>
             <div className="mt-6 flex flex-wrap justify-start gap-3 sm:gap-4">
-              {committee.organizingCommittee.map((member, index) => (
+              {committee.organizingCommittee.map((member) => (
                 <div
                   key={member}
-                  className={`flex min-h-[88px] w-full items-center justify-center rounded-2xl border px-5 py-5 text-center leading-7 shadow-[0_18px_40px_rgba(15,23,42,0.06)] transition-transform duration-300 hover:-translate-y-0.5 sm:w-[240px] lg:w-[248px] ${
-                    index < 4
-                      ? 'border-teal-200 bg-gradient-to-br from-teal-50 via-white to-sky-50 text-base font-semibold text-slate-900'
-                      : 'border-slate-200 bg-white text-sm text-slate-600'
-                  }`}
+                  className="flex min-h-[88px] w-full items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-5 text-center text-sm leading-7 text-slate-600 shadow-[0_18px_40px_rgba(15,23,42,0.06)] transition-transform duration-300 hover:-translate-y-0.5 sm:w-[240px] lg:w-[248px]"
                 >
                   {member}
                 </div>
