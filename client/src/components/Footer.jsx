@@ -5,7 +5,11 @@ function Footer() {
   return (
     <footer className="mt-24 overflow-hidden bg-navy-950 text-white">
       <div className="content-grid py-16">
-        <div className="glass-panel overflow-hidden p-8 lg:p-10">
+        <div className="glass-panel bg-radial-premium relative overflow-hidden p-8 lg:p-10">
+          <div className="pointer-events-none absolute inset-0 hero-grid-overlay opacity-25" />
+          <div className="pointer-events-none absolute -left-8 top-0 h-28 w-28 rounded-full bg-teal-300/16 blur-3xl" />
+          <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 rounded-full bg-cyan-300/10 blur-3xl" />
+          <div className="relative">
           <div className="grid gap-12 lg:grid-cols-[1.3fr_0.8fr_0.9fr]">
             <div>
               <div className="flex items-center gap-4">
@@ -57,6 +61,7 @@ function Footer() {
               </div>
             </div>
           </div>
+          </div>
         </div>
       </div>
     </footer>
@@ -64,3 +69,4 @@ function Footer() {
 }
 
 export default Footer
+

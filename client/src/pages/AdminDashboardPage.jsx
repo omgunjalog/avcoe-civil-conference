@@ -28,6 +28,7 @@ import {
   updatePaperStatusEntry,
   updateRegistrationEntry,
 } from '../services/api'
+import { AdminSkeleton } from '../components/Skeletons'
 
 const PAGE_SIZE = 8
 const PAPER_STATUS_OPTIONS = [
@@ -422,11 +423,7 @@ function AdminDashboardPage() {
   }
 
   if (loading) {
-    return (
-      <div className="grid min-h-screen place-items-center bg-slate-100">
-        <LoaderCircle className="animate-spin text-navy-900" size={34} />
-      </div>
-    )
+    return <AdminSkeleton />
   }
 
   return (

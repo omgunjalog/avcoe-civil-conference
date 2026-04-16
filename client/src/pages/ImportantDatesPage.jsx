@@ -1,5 +1,7 @@
 import Reveal from '../components/Reveal'
 import SectionHeader from '../components/SectionHeader'
+import SectionFrame from '../components/SectionFrame'
+import SurfaceCard from '../components/SurfaceCard'
 import { importantDates, siteMeta } from '../data/conferenceData'
 
 function ImportantDatesPage() {
@@ -7,7 +9,7 @@ function ImportantDatesPage() {
     <section className="section-space pt-10">
       <div className="content-grid">
         <Reveal>
-          <div className="glass-panel page-hero-band overflow-hidden px-5 py-8 text-white sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+          <SurfaceCard variant="glass" className="page-hero-band engineering-panel overflow-hidden px-5 py-8 text-white sm:px-8 sm:py-10 lg:px-10 lg:py-12">
             <p className="section-kicker border-white/10 bg-white/8 text-teal-200">Conference Timeline</p>
             <h1 className="mt-6 max-w-5xl font-display text-4xl leading-[0.98] sm:text-6xl">
               Important milestones leading to {siteMeta.conferenceName} at AVCOE, Sangamner.
@@ -15,10 +17,10 @@ function ImportantDatesPage() {
             <p className="mt-6 max-w-3xl text-base leading-8 text-slate-200/82">
               The brochure confirms the abstract deadline, acceptance notification, final registration and full-length paper deadline, and the conference date in September 2026.
             </p>
-          </div>
+          </SurfaceCard>
         </Reveal>
 
-        <div className="mt-12">
+        <SectionFrame variant="light" className="mt-12">
           <Reveal>
             <SectionHeader
               kicker="Important Dates"
@@ -27,7 +29,7 @@ function ImportantDatesPage() {
             />
           </Reveal>
 
-          <div className="relative mt-10 space-y-6 before:absolute before:left-4 before:top-0 before:h-full before:w-px before:bg-slate-300 sm:before:left-1/2">
+          <div className="relative mt-10 space-y-6 before:absolute before:left-4 before:top-0 before:h-full before:w-px before:bg-gradient-to-b before:from-emerald-400/70 before:via-cyan-300/50 before:to-transparent sm:before:left-1/2">
             {importantDates.map((item, index) => (
               <Reveal key={item.label} delay={index * 0.08}>
                 <div className="relative sm:grid sm:grid-cols-2">
@@ -49,7 +51,7 @@ function ImportantDatesPage() {
               </Reveal>
             ))}
           </div>
-        </div>
+        </SectionFrame>
       </div>
     </section>
   )

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
 import SectionHeader from '../components/SectionHeader'
+import { ResultSkeleton } from '../components/Skeletons'
+import SurfaceCard from '../components/SurfaceCard'
 import { trackPaperSubmission } from '../services/api'
 
 const initialForm = {
@@ -68,11 +70,12 @@ function TrackPaperPage() {
 
         <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
           <Reveal>
-            <div className="surface-card">
+            <SurfaceCard variant="dark">
               <SectionHeader
                 kicker="Submission Lookup"
                 title="Track a manuscript"
                 description="No separate account is required. Tracking uses the unique submission ID and the original author email."
+                light
               />
               <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
                 <input
@@ -96,12 +99,14 @@ function TrackPaperPage() {
                   {loading ? <LoaderCircle className="animate-spin" size={18} /> : 'Check Status'}
                 </button>
               </form>
-            </div>
+            </SurfaceCard>
           </Reveal>
 
           <Reveal delay={0.08}>
-            {result ? (
-              <div className="surface-card">
+            {loading ? (
+              <ResultSkeleton />
+            ) : result ? (
+              <SurfaceCard variant="soft">
                 <div className="flex flex-wrap items-start justify-between gap-4 border-b border-slate-200 pb-6">
                   <div>
                     <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-teal-600">
@@ -183,21 +188,21 @@ function TrackPaperPage() {
                     )}
                   </div>
                 </div>
-              </div>
+              </SurfaceCard>
             ) : (
-              <div className="surface-card">
+              <SurfaceCard variant="dark">
                 <div className="grid min-h-[420px] place-items-center text-center">
                   <div className="max-w-md">
-                    <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-teal-50 text-teal-600">
+                    <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-white/10 text-teal-200 shadow-[0_18px_44px_rgba(56,211,159,0.16)]">
                       <SearchCheck size={24} />
                     </div>
-                    <h2 className="mt-6 font-display text-4xl text-slate-950">Ready to look up a submission</h2>
-                    <p className="mt-4 text-sm leading-8 text-slate-600">
+                    <h2 className="mt-6 font-display text-4xl text-white">Ready to look up a submission</h2>
+                    <p className="mt-4 text-sm leading-8 text-slate-200/78">
                       Enter a valid tracking ID and the author email to view the live progress of a paper submission.
                     </p>
                   </div>
                 </div>
-              </div>
+              </SurfaceCard>
             )}
           </Reveal>
         </div>
@@ -207,3 +212,4 @@ function TrackPaperPage() {
 }
 
 export default TrackPaperPage
+

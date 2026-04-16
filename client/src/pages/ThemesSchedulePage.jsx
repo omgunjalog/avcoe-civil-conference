@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
+import SectionFrame from '../components/SectionFrame'
+import SurfaceCard from '../components/SurfaceCard'
 import {
   conferenceSchedule,
   scheduleAnnouncement,
@@ -62,12 +64,12 @@ function ThemesSchedulePage() {
         {activeView === 'themes' ? (
           <div className="mt-14 space-y-10">
             <Reveal>
-              <div className="surface-card overflow-hidden">
+              <SurfaceCard variant="light" className="overflow-hidden">
                 <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-                    <div>
-                      <div className="inline-flex rounded-2xl bg-teal-50 p-3 text-teal-600">
-                        <Sparkles size={22} />
-                      </div>
+                  <div>
+                    <div className="inline-flex rounded-2xl bg-teal-50 p-3 text-teal-600 shadow-[0_16px_36px_rgba(65,211,189,0.18)]">
+                      <Sparkles size={22} />
+                    </div>
                     <h2 className="mt-5 font-display text-3xl text-slate-950 sm:text-4xl">About the conference themes</h2>
                     <div className="mt-6 space-y-4">
                       {themesOverview.map((item) => (
@@ -80,13 +82,13 @@ function ThemesSchedulePage() {
 
                   <div className="grid gap-4">
                     {scheduleHighlights.map((item) => (
-                      <div key={item} className="rounded-[24px] border border-slate-200 bg-slate-50/90 px-5 py-5 text-sm leading-7 text-slate-600">
+                      <div key={item} className="rounded-[24px] border border-white/70 bg-white/88 px-5 py-5 text-sm leading-7 text-slate-600 shadow-[0_18px_44px_rgba(7,18,33,0.06)]">
                         {item}
                       </div>
                     ))}
                   </div>
                 </div>
-              </div>
+              </SurfaceCard>
             </Reveal>
 
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -94,8 +96,8 @@ function ThemesSchedulePage() {
                 const Icon = track.icon
                 return (
                   <Reveal key={track.title} delay={index * 0.05}>
-                    <article className="surface-card h-full overflow-hidden border-t-4 border-t-teal-400/85">
-                      <div className="inline-flex rounded-2xl bg-teal-50 p-3 text-teal-600">
+                    <SurfaceCard as="article" variant="light" className="h-full overflow-hidden border-t-4 border-t-teal-400/85">
+                      <div className="inline-flex rounded-2xl bg-teal-50 p-3 text-teal-600 shadow-[0_16px_36px_rgba(65,211,189,0.18)]">
                         <Icon size={22} />
                       </div>
                       <div className="mt-6 flex items-start justify-between gap-3">
@@ -105,7 +107,7 @@ function ThemesSchedulePage() {
                         </span>
                       </div>
                       <p className="mt-4 text-sm leading-7 text-slate-600">{track.description}</p>
-                    </article>
+                    </SurfaceCard>
                   </Reveal>
                 )
               })}
@@ -115,7 +117,7 @@ function ThemesSchedulePage() {
           <div className="mt-14 space-y-8">
             {conferenceSchedule.map((day, dayIndex) => (
               <Reveal key={day.day} delay={dayIndex * 0.08}>
-                <section className="surface-card overflow-hidden p-0">
+                <SurfaceCard as="section" variant="light" className="overflow-hidden p-0">
                   <div className="flex flex-col gap-5 bg-[linear-gradient(135deg,#1098a5,#0a6f86)] px-6 py-6 text-white lg:flex-row lg:items-center lg:justify-between">
                     <div className="flex items-start gap-4">
                       <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white/12">
@@ -171,13 +173,13 @@ function ThemesSchedulePage() {
                       </div>
                     ))}
                   </div>
-                </section>
+                </SurfaceCard>
               </Reveal>
             ))}
           </div>
         ) : (
           <Reveal>
-            <div className="mt-14 surface-card">
+            <SurfaceCard variant="light" className="mt-14">
               <div className="rounded-[28px] border border-slate-200 bg-slate-50 px-5 py-6 sm:px-6">
                 <p className="section-kicker !border-teal-200 !bg-teal-50 !text-teal-700">Schedule Update</p>
                 <h2 className="mt-5 font-display text-3xl text-slate-950 sm:text-4xl">{scheduleAnnouncement.title}</h2>
@@ -190,19 +192,19 @@ function ThemesSchedulePage() {
                   ))}
                 </div>
               </div>
-            </div>
+            </SurfaceCard>
           </Reveal>
         )}
 
         <Reveal>
-          <div className="mt-12 flex flex-col gap-4 rounded-[30px] border border-slate-200 bg-white p-8 shadow-[0_22px_60px_rgba(7,18,33,0.08)] sm:flex-row">
+          <SectionFrame variant="steel" className="mt-12 flex flex-col gap-4 sm:flex-row">
             <Link to="/submit-paper" className="button-primary">
               Submit Paper
             </Link>
             <Link to="/registration" className="button-ghost">
               Register Now
             </Link>
-          </div>
+          </SectionFrame>
         </Reveal>
       </div>
     </section>

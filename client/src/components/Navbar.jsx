@@ -1,18 +1,33 @@
 import { Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { navigationLinks, siteMeta } from '../data/conferenceData'
 
 function Navbar() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 18)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navClass = ({ isActive }) =>
-    `whitespace-nowrap text-[0.92rem] font-medium transition ${isActive ? 'text-teal-300' : 'text-slate-200/80 hover:text-white'}`
+    `relative whitespace-nowrap text-[0.92rem] font-medium transition after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-gradient-to-r after:from-transparent after:via-teal-300 after:to-transparent after:transition-transform after:duration-300 ${
+      isActive
+        ? 'text-teal-200 after:scale-x-100'
+        : 'text-slate-200/80 hover:text-white hover:after:scale-x-100'
+    }`
 
   return (
     <header className="sticky top-0 z-50 pt-3 sm:pt-4">
       <div className="content-grid">
-        <div className="nav-shell grid grid-cols-[auto_1fr_auto] items-center gap-4 lg:grid-cols-[auto_auto_auto_1fr_auto]">
+        <div className={`nav-shell grid grid-cols-[auto_1fr_auto] items-center gap-4 lg:grid-cols-[auto_auto_auto_1fr_auto] ${scrolled ? 'nav-shell-scrolled' : ''}`}>
           <Link to="/" className="flex items-center gap-2 sm:gap-3 lg:col-start-1">
             <div className="brand-badge hidden lg:block">
               <img
@@ -34,7 +49,7 @@ function Navbar() {
 
           <div className="min-w-0 lg:col-start-3">
             <p className="text-sm font-semibold text-white sm:text-[0.95rem]">{siteMeta.conferenceName}</p>
-            <p className="hidden text-[0.62rem] uppercase tracking-[0.24em] text-slate-300/75 sm:block lg:text-[0.68rem] lg:tracking-[0.28em]">
+            <p className="hidden text-[0.62rem] uppercase tracking-[0.24em] text-slate-300/78 sm:block lg:text-[0.68rem] lg:tracking-[0.28em]">
               {siteMeta.theme}
             </p>
           </div>
@@ -90,3 +105,4 @@ function Navbar() {
 }
 
 export default Navbar
+

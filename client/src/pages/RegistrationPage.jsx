@@ -4,6 +4,8 @@ import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
 import RegistrationForm from '../components/RegistrationForm'
 import SectionHeader from '../components/SectionHeader'
+import SectionFrame from '../components/SectionFrame'
+import SurfaceCard from '../components/SurfaceCard'
 import { paymentInfo, registrationPlans, registrationProcess } from '../data/conferenceData'
 
 const segmentButtonClass = (isActive) =>
@@ -40,7 +42,8 @@ function RegistrationPage() {
         </PageHero>
 
         <Reveal>
-          <div className="mt-14 surface-card overflow-hidden">
+          <SectionFrame variant="steel" className="mt-14">
+            <SurfaceCard variant="light" className="overflow-hidden">
             <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
               <div>
                 <span className="section-kicker border-teal-200/80 bg-teal-50 text-teal-700">{pricingState.badge}</span>
@@ -50,22 +53,23 @@ function RegistrationPage() {
                 </p>
               </div>
 
-              <div className="rounded-[26px] border border-slate-200 bg-slate-50/90 px-5 py-5 text-sm text-slate-600">
+              <div className="rounded-[26px] border border-white/70 bg-white/86 px-5 py-5 text-sm text-slate-600 shadow-[0_18px_44px_rgba(7,18,33,0.06)]">
                 <p className="font-semibold text-slate-900">Verification policy</p>
                 <p className="mt-3 leading-7">
                   Every registration requires payment proof upload and admin verification. The brochure also clarifies that registration charges do not include publication charges.
                 </p>
               </div>
             </div>
-          </div>
+            </SurfaceCard>
+          </SectionFrame>
         </Reveal>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {pricingState.plans.map((item, index) => (
             <Reveal key={`${pricingMode}-${item.category}`} delay={index * 0.08}>
-              <article className={`surface-card h-full border-t-4 ${item.accent}`}>
+              <SurfaceCard as="article" variant="light" className={`h-full border-t-4 ${item.accent}`}>
                 <div className="flex items-start justify-between gap-4">
-                  <div className="inline-flex rounded-2xl bg-teal-50 p-3 text-teal-600">
+                  <div className="inline-flex rounded-2xl bg-teal-50 p-3 text-teal-600 shadow-[0_16px_36px_rgba(65,211,189,0.18)]">
                     <CreditCard size={22} />
                   </div>
                   <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
@@ -85,7 +89,7 @@ function RegistrationPage() {
                 <a href="#registration-form" className="button-primary mt-6 w-full">
                   Register
                 </a>
-              </article>
+              </SurfaceCard>
             </Reveal>
           ))}
         </div>
@@ -93,21 +97,21 @@ function RegistrationPage() {
         <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <div className="space-y-8">
-              <div className="surface-card">
-                <h3 className="font-display text-3xl text-slate-950">Registration Process</h3>
+              <SurfaceCard variant="dark">
+                <h3 className="font-display text-3xl text-white">Registration Process</h3>
                 <div className="mt-6 space-y-4">
                   {registrationProcess.map((step, index) => (
-                    <div key={step} className="flex gap-4 rounded-2xl bg-slate-50 px-4 py-4">
-                      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-navy-900 text-sm font-semibold text-white">
+                    <div key={step} className="flex gap-4 rounded-2xl border border-white/10 bg-white/6 px-4 py-4">
+                      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,#38d39f,#7ad8ff)] text-sm font-semibold text-navy-950">
                         {index + 1}
                       </div>
-                      <p className="text-sm leading-7 text-slate-600">{step}</p>
+                      <p className="text-sm leading-7 text-slate-200/78">{step}</p>
                     </div>
                   ))}
                 </div>
-              </div>
+              </SurfaceCard>
 
-              <div className="surface-card">
+              <SectionFrame variant="light">
                 <h3 className="font-display text-3xl text-slate-950">Payment Details</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   Share the transaction reference and upload payment proof in the form. This matches the brochure note on UTR and bank-name based payment confirmation.
@@ -117,7 +121,7 @@ function RegistrationPage() {
                   <div className="rounded-2xl bg-slate-50 px-4 py-3">Account Name: {paymentInfo.accountName}</div>
                   <div className="rounded-2xl bg-slate-50 px-4 py-3">Account Number: {paymentInfo.accountNumber}</div>
                   {paymentInfo.ifsc ? <div className="rounded-2xl bg-slate-50 px-4 py-3">IFSC: {paymentInfo.ifsc}</div> : null}
-                  {paymentInfo.branch ? <div className="rounded-2xl bg-slate-50 px-4 py-3">Branch: {paymentInfo.branch}</div> : null}
+                  {paymentInfo.branch ? <div className="rounded-2xl bg-slate-50 px-4 py-3 lg:col-span-2">Branch: {paymentInfo.branch}</div> : null}
                   <div className="rounded-2xl bg-slate-50 px-4 py-3 lg:col-span-2">{paymentInfo.acceptedModes}</div>
                   <div className="rounded-2xl bg-slate-50 px-4 py-3 lg:col-span-2">{paymentInfo.note}</div>
                 </div>
@@ -131,7 +135,7 @@ function RegistrationPage() {
                     />
                   </div>
                 ) : null}
-              </div>
+              </SectionFrame>
             </div>
           </Reveal>
 
@@ -154,3 +158,4 @@ function RegistrationPage() {
 }
 
 export default RegistrationPage
+

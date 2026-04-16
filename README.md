@@ -204,7 +204,7 @@ Verify:
 
 ## Admin Credentials
 
-- Email: `admin@civicon2026.com`
-- Password: `Admin@123`
+- Email: `admin@sres26.com`
+- Password: `SRES26_Admin!4827`
 
 Change them before production sharing.
