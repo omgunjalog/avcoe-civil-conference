@@ -163,12 +163,13 @@
   }
 
   .nav-shell {
-    @apply rounded-[24px] border border-white/10 bg-white/6 px-4 py-3 sm:px-5 shadow-[0_22px_60px_rgba(3,10,20,0.24)] backdrop-blur-2xl transition duration-300;
-    background-image: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
+    @apply isolate overflow-hidden rounded-[24px] border border-white/10 px-4 py-3 sm:px-5 shadow-[0_22px_60px_rgba(3,10,20,0.24)] backdrop-blur-xl transition duration-300;
+    background-color: rgba(18, 34, 51, 0.78);
   }
 
   .nav-shell-scrolled {
-    @apply border-white/14 bg-navy-900/72 shadow-[0_24px_70px_rgba(2,10,20,0.34)];
+    @apply border-white/14 shadow-[0_24px_70px_rgba(2,10,20,0.34)];
+    background-color: rgba(10, 25, 47, 0.9);
   }
 
   .brand-badge {
