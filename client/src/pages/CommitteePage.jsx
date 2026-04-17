@@ -23,14 +23,55 @@ const getInitials = (name) =>
     .join('')
     .toUpperCase()
 
+const leadershipPhotoMap = {
+  "Hon'ble Shri. Balasaheb B. Thorat": {
+    src: '/committee-photos/hon-shri-balasaheb-b-thorat-portrait.jpg',
+  },
+  "Hon'ble Dr. Sudhir Tambe": {
+    src: '/committee-photos/hon-dr-sudhir-tambe.jpeg',
+  },
+  "Hon'ble Mrs. Sharayu Deshmukh": {
+    src: '/committee-photos/hon-mrs-sharayu-deshmukh.png',
+  },
+  'Shri. Anil B. Shinde': {
+    src: '/committee-photos/shri-anil-b-shinde.jpeg',
+  },
+  'Dr. Jyotiba B. Gurav': {
+    src: '/committee-photos/dr-jyotiba-b-gurav.jpeg',
+  },
+  'Prof. V. B. Dhumal': {
+    src: '/committee-photos/prof-v-b-dhumal.jpg',
+  },
+  'Dr. M. A. Venkatesh': {
+    src: '/committee-photos/dr-m-a-venkatesh.jpg',
+  },
+  'Dr. S. B. Kandekar': {
+    src: '/committee-photos/dr-s-b-kandekar.jpeg',
+  },
+  'Dr. A. J. Mehetre': {
+    src: '/committee-photos/dr-a-j-mehetre.jpeg',
+  },
+  'Dr. R. T. Sahu': {
+    src: '/committee-photos/dr-r-t-sahu.jpeg',
+  },
+}
+
 function LeadershipCard({ name, detail, cardClass, avatarClass }) {
+  const photo = leadershipPhotoMap[name]
+
   return (
     <div className={`${cardClass} flex flex-col gap-4 sm:flex-row sm:items-start`}>
-      <div className={`${avatarClass} shrink-0`}>
-        <div className="portrait-initials">{getInitials(name)}</div>
-        <div className="portrait-frame" />
-        <ImageIcon size={26} strokeWidth={1.8} />
-        <span className="portrait-label">Photo Placeholder</span>
+      <div className={`${photo?.shellClass || avatarClass} shrink-0`}>
+        {photo ? (
+          <img src={photo.src} alt={name} className={photo.imageClass || 'portrait-image'} />
+        ) : (
+          <>
+            <div className="portrait-initials">{getInitials(name)}</div>
+            <div className="portrait-frame" />
+            <ImageIcon size={26} strokeWidth={1.8} />
+            <span className="portrait-label">Photo Placeholder</span>
+          </>
+        )}
       </div>
       <div>
         <h3 className="font-display text-2xl text-slate-950 sm:text-3xl">{name}</h3>
