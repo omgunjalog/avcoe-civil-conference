@@ -18,6 +18,10 @@ function Footer() {
                     src="/brand/amrutvahini-wordmark.svg"
                     alt="Amrutvahini Sanstha"
                     className="h-10 w-auto"
+                    width="208"
+                    height="40"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div>
@@ -69,4 +73,3 @@ function Footer() {
 }
 
 export default Footer
-

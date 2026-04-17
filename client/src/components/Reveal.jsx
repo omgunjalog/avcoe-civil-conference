@@ -1,16 +1,44 @@
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 
 function Reveal({ children, className = '', delay = 0, y = 24 }) {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return undefined
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) {
+      setVisible(true)
+      return undefined
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.2 },
+    )
+
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y, scale: 0.985, filter: 'blur(10px)' }}
-      whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.7, delay, ease: 'easeOut' }}
+    <div
+      ref={ref}
+      className={`reveal-shell ${visible ? 'reveal-visible' : ''} ${className}`.trim()}
+      style={{
+        '--reveal-delay': `${delay}s`,
+        '--reveal-y': `${y}px`,
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   )
 }
 

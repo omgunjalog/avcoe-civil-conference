@@ -76,5 +76,17 @@ function ResultSkeleton() {
   )
 }
 
-export { AdminSkeleton, CardSkeletonGrid, HeroSkeleton, ResultSkeleton, SkeletonBlock }
+function PageShellSkeleton() {
+  return (
+    <div className="content-grid py-10 sm:py-14">
+      <div className="surface-card-dark engineering-panel">
+        <HeroSkeleton />
+      </div>
+      <div className="mt-8">
+        <CardSkeletonGrid count={3} className="xl:grid-cols-3" />
+      </div>
+    </div>
+  )
+}
 
+export { AdminSkeleton, CardSkeletonGrid, HeroSkeleton, PageShellSkeleton, ResultSkeleton, SkeletonBlock }

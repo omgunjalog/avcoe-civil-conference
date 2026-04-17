@@ -1,5 +1,4 @@
 import { ArrowRight, CalendarDays, MapPin } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import SectionHeader from '../components/SectionHeader'
@@ -58,11 +57,7 @@ function HomePage() {
           </Reveal>
 
           <Reveal delay={0.12}>
-            <motion.div
-              className="hero-mesh-card mt-10 text-white sm:p-6 lg:mt-0"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-            >
+            <div className="hero-mesh-card floating-panel mt-10 text-white sm:p-6 lg:mt-0">
               <div className="pointer-events-none absolute inset-0 hero-grid-overlay opacity-35" />
               <div className="pointer-events-none absolute right-6 top-6 h-28 w-28 rounded-full bg-teal-300/14 blur-3xl" />
               <div className="glow-divider absolute left-10 right-10 top-24" />
@@ -122,7 +117,7 @@ function HomePage() {
                 </div>
               </div>
               </div>
-            </motion.div>
+            </div>
           </Reveal>
         </div>
       </section>

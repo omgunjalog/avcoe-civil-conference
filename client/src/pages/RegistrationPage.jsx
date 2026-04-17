@@ -132,6 +132,10 @@ function RegistrationPage() {
                       src={paymentInfo.qrCodePath}
                       alt="Conference payment QR"
                       className="mt-4 h-40 w-40 rounded-3xl border border-slate-200 bg-white p-3 sm:h-48 sm:w-48"
+                      width="192"
+                      height="192"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 ) : null}
@@ -158,4 +162,3 @@ function RegistrationPage() {
 }
 
 export default RegistrationPage
-

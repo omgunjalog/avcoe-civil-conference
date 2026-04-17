@@ -34,6 +34,9 @@ function Navbar() {
                 src="/brand/amrutvahini-wordmark.svg"
                 alt="Amrutvahini"
                 className="h-8 w-auto"
+                width="166"
+                height="32"
+                decoding="async"
               />
             </div>
             <div className="mobile-brand-badge lg:hidden">
@@ -41,6 +44,9 @@ function Navbar() {
                 src="/brand/amrutvahini-wordmark.svg"
                 alt="Amrutvahini"
                 className="h-5 w-auto"
+                width="104"
+                height="20"
+                decoding="async"
               />
             </div>
           </Link>
@@ -105,4 +111,3 @@ function Navbar() {
 }
 
 export default Navbar
-

@@ -63,7 +63,15 @@ function LeadershipCard({ name, detail, cardClass, avatarClass }) {
     <div className={`${cardClass} flex flex-col gap-4 sm:flex-row sm:items-start`}>
       <div className={`${photo?.shellClass || avatarClass} shrink-0`}>
         {photo ? (
-          <img src={photo.src} alt={name} className={photo.imageClass || 'portrait-image'} />
+          <img
+            src={photo.src}
+            alt={name}
+            className={photo.imageClass || 'portrait-image'}
+            width="120"
+            height="152"
+            loading="lazy"
+            decoding="async"
+          />
         ) : (
           <>
             <div className="portrait-initials">{getInitials(name)}</div>

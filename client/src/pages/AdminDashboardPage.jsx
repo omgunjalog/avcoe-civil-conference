@@ -13,7 +13,7 @@ import {
   Trash2,
   X,
 } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -175,6 +175,7 @@ function AdminDashboardPage() {
   const [statusForm, setStatusForm] = useState(null)
   const [savingEdit, setSavingEdit] = useState(false)
   const [savingStatus, setSavingStatus] = useState(false)
+  const deferredSearchTerm = useDeferredValue(searchTerm)
 
   const openRecord = (record, type) => {
     const hydratedRecord = type === 'registration' ? hydrateRegistration(record) : hydratePaper(record)
@@ -185,7 +186,7 @@ function AdminDashboardPage() {
     setStatusForm(getStatusStateFromRecord(nextRecord))
   }
 
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     setLoading(true)
     try {
       const [overviewRes, registrationsRes, papersRes] = await Promise.all([
@@ -205,11 +206,11 @@ function AdminDashboardPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [navigate])
 
   useEffect(() => {
     loadData()
-  }, [])
+  }, [loadData])
 
   useEffect(() => {
     setPage(1)
@@ -328,46 +329,66 @@ function AdminDashboardPage() {
     return true
   }
 
-  const normalizedQuery = searchTerm.trim().toLowerCase()
+  const normalizedQuery = useMemo(
+    () => deferredSearchTerm.trim().toLowerCase(),
+    [deferredSearchTerm],
+  )
 
-  const filteredRegistrations = registrations.filter((item) => {
-    const matchesSearch =
-      !normalizedQuery ||
-      [item.name, item.email, item.phone, item.college, item.category, item.paymentReference, item.paymentStatus]
-        .join(' ')
-        .toLowerCase()
-        .includes(normalizedQuery)
+  const filteredRegistrations = useMemo(
+    () =>
+      registrations.filter((item) => {
+        const matchesSearch =
+          !normalizedQuery ||
+          [item.name, item.email, item.phone, item.college, item.category, item.paymentReference, item.paymentStatus]
+            .join(' ')
+            .toLowerCase()
+            .includes(normalizedQuery)
 
-    const matchesCategory =
-      registrationCategory === 'all' || item.category === registrationCategory
+        const matchesCategory =
+          registrationCategory === 'all' || item.category === registrationCategory
 
-    const matchesPaymentStatus =
-      registrationPaymentStatus === 'all' || item.paymentStatus === registrationPaymentStatus
+        const matchesPaymentStatus =
+          registrationPaymentStatus === 'all' || item.paymentStatus === registrationPaymentStatus
 
-    return matchesSearch && matchesCategory && matchesPaymentStatus && matchesDateFilter(item)
-  })
+        return matchesSearch && matchesCategory && matchesPaymentStatus && matchesDateFilter(item)
+      }),
+    [registrations, normalizedQuery, registrationCategory, registrationPaymentStatus, dateFilter],
+  )
 
-  const filteredPapers = papers.filter((item) => {
-    const matchesSearch =
-      !normalizedQuery ||
-      [item.trackingId, item.name, item.email, item.title, item.abstract, item.status, item.registration?.paymentStatus]
-        .join(' ')
-        .toLowerCase()
-        .includes(normalizedQuery)
+  const filteredPapers = useMemo(
+    () =>
+      papers.filter((item) => {
+        const matchesSearch =
+          !normalizedQuery ||
+          [item.trackingId, item.name, item.email, item.title, item.abstract, item.status, item.registration?.paymentStatus]
+            .join(' ')
+            .toLowerCase()
+            .includes(normalizedQuery)
 
-    const matchesStatus = paperStatusFilter === 'all' || item.status === paperStatusFilter
+        const matchesStatus = paperStatusFilter === 'all' || item.status === paperStatusFilter
 
-    return matchesSearch && matchesStatus && matchesDateFilter(item)
-  })
+        return matchesSearch && matchesStatus && matchesDateFilter(item)
+      }),
+    [papers, normalizedQuery, paperStatusFilter, dateFilter],
+  )
 
-  const activeRows =
-    activePanel === 'registrations' ? filteredRegistrations : filteredPapers
+  const activeRows = useMemo(
+    () => (activePanel === 'registrations' ? filteredRegistrations : filteredPapers),
+    [activePanel, filteredRegistrations, filteredPapers],
+  )
 
-  const totalPages = Math.max(1, Math.ceil(activeRows.length / PAGE_SIZE))
+  const totalPages = useMemo(
+    () => Math.max(1, Math.ceil(activeRows.length / PAGE_SIZE)),
+    [activeRows.length],
+  )
   const currentPage = Math.min(page, totalPages)
-  const paginatedRows = activeRows.slice(
-    (currentPage - 1) * PAGE_SIZE,
-    currentPage * PAGE_SIZE,
+  const paginatedRows = useMemo(
+    () =>
+      activeRows.slice(
+        (currentPage - 1) * PAGE_SIZE,
+        currentPage * PAGE_SIZE,
+      ),
+    [activeRows, currentPage],
   )
 
   const panelButtonClass = (panel) =>
