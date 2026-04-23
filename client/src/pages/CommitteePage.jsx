@@ -189,19 +189,17 @@ function CommitteePage() {
           </SurfaceCard>
         </Reveal>
 
-        <Reveal>
-          <SectionFrame variant="light">
-            <h3 className="font-display text-2xl text-slate-950 sm:text-3xl">Advisory Committee</h3>
-            <div className="mt-6 grid gap-4 lg:grid-cols-2">
-              {committee.advisoryCommittee.map((member) => (
-                <div key={member} className="advisory-card">
-                  <div className="mb-4 h-px w-16 bg-gradient-to-r from-teal-400/80 to-amber-300/70" />
-                  {member}
-                </div>
-              ))}
-            </div>
-          </SectionFrame>
-        </Reveal>
+        <SectionFrame variant="light">
+          <h3 className="font-display text-2xl text-slate-950 sm:text-3xl">Advisory Committee</h3>
+          <div className="mt-6 grid gap-4 lg:grid-cols-2">
+            {committee.advisoryCommittee.map((member) => (
+              <div key={member} className="advisory-card">
+                <div className="mb-4 h-px w-16 bg-gradient-to-r from-teal-400/80 to-amber-300/70" />
+                {member}
+              </div>
+            ))}
+          </div>
+        </SectionFrame>
       </div>
     </section>
   )
