@@ -2,6 +2,12 @@
 
 Production-ready conference website for the Civil Department of Amrutvahini College of Engineering.
 
+## Documentation
+
+- [Architecture Overview](./ARCHITECTURE_OVERVIEW.md)
+- [Client Tutorial](./CLIENT_TUTORIAL.md)
+- [Graphify Report](./graphify-out/GRAPH_REPORT.md)
+
 ## Stack
 
 - Client: Vite, React, Tailwind CSS v4, Framer Motion, React Router, Axios, React Hot Toast
