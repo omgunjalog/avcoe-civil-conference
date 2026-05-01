@@ -35,6 +35,13 @@ export const siteMeta = {
   contactPhone: '+91 98601 79804 / +91 99987 80784',
 }
 
+export const externalForms = {
+  abstractSubmission:
+    'https://docs.google.com/forms/d/e/1FAIpQLSegF1B1mumOZp-O5zH21aoqIHRmEmb0iNRBNtNkrcp9Mo2_bQ/viewform?usp=publish-editor',
+  authorRegistration:
+    'https://docs.google.com/forms/d/e/1FAIpQLScNr9dC-w3AV1lKR7j8sTRvj-omm_HRgJ8T_YTO66i8VEkI7w/viewform?usp=publish-editor',
+}
+
 export const heroMetrics = [
   { value: '10', label: 'Conference themes' },
   { value: '16 Sep', label: 'Conference date' },
@@ -202,8 +209,8 @@ export const tracks = [
 
 export const scheduleHighlights = [
   'The detailed technical programme will be published after paper review, speaker confirmation, and final committee approval.',
-  'Authors should currently focus on the brochure dates for abstract submission, acceptance, registration, and the conference day.',
-  'The conference brochure confirms the event month and venue, while the full session schedule will be announced separately.',
+  'Authors should currently focus on the published dates for abstract submission, acceptance, registration, and the conference day.',
+  'The event month and venue are confirmed, while the full session schedule will be announced separately.',
 ]
 
 export const themesOverview = [
@@ -217,7 +224,7 @@ export const conferenceSchedule = []
 export const scheduleAnnouncement = {
   title: 'Detailed schedule will be announced soon',
   description:
-    'The brochure currently confirms the conference date, venue, and submission milestones. Session-wise scheduling will be released after paper review and final committee coordination.',
+    'The conference date, venue, and submission milestones are confirmed. Session-wise scheduling will be released after paper review and final committee coordination.',
   checkpoints: [
     'Submission of Abstract: 25th May 2026',
     'Notification of Acceptance: 15th June 2026',
@@ -248,7 +255,7 @@ export const registrationPlans = {
   domestic: {
     label: 'Domestic',
     badge: 'Indian delegates',
-    note: 'Registration fees for Indian delegates are listed as per the brochure. The registration fee does not include publication charges.',
+    note: 'Registration fees for Indian delegates are listed below. The registration fee does not include publication charges.',
     plans: [
       {
         category: 'UG & PG Students',
@@ -290,10 +297,10 @@ export const registrationPlans = {
 }
 
 export const registrationProcess = [
-  'Choose the appropriate delegate category before starting the registration form.',
+  'Choose the appropriate delegate category before opening the author registration form.',
   'Complete the payment using NEFT, RTGS, or online transfer with the official beneficiary details.',
-  'Provide the UTR / payment reference and upload proof in the registration form for verification.',
-  'Wait for verification from the organizing team before final participation or publication-related follow-up.',
+  'Keep the UTR / payment reference and proof ready so you can enter them in the registration form exactly as requested by the organizing team.',
+  'Wait for verification or follow-up instructions from the organizing team after the form is submitted.',
 ]
 
 export const importantDates = [
@@ -325,16 +332,15 @@ export const submissionGuidelines = [
 
 export const submissionProcess = [
   'Prepare the manuscript according to the author guidelines and abstract limit.',
-  'Submit the author details and final manuscript through the portal for tracking and status updates.',
-  'Keep the generated tracking ID safe to follow acceptance and review progress online.',
-  'For submission assistance, authors can contact sres26@avcoe.org or the department coordinators listed on the brochure.',
+  'Open the official abstract submission form shared by the conference organizers.',
+  'Submit the requested author details and abstract exactly as instructed in the form.',
+  'For submission assistance or follow-up, authors can contact sres26@avcoe.org or the department coordinators listed on the conference materials.',
 ]
 
 export const footerLinks = [
   { label: 'Conference Themes', href: '/themes-schedule' },
-  { label: 'Registration', href: '/registration' },
-  { label: 'Submit Paper', href: '/submit-paper' },
-  { label: 'Track Paper', href: '/track-paper' },
+  { label: 'Registration', href: externalForms.authorRegistration, external: true },
+  { label: 'Submit Paper', href: externalForms.abstractSubmission, external: true },
   { label: 'Admin Login', href: '/admin/login' },
 ]
 

@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom'
-import PaperSubmissionForm from '../components/PaperSubmissionForm'
+import { ArrowUpRight, ExternalLink } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import SectionHeader from '../components/SectionHeader'
 import SectionFrame from '../components/SectionFrame'
 import SurfaceCard from '../components/SurfaceCard'
-import { paymentInfo, submissionGuidelines, submissionProcess } from '../data/conferenceData'
+import { externalForms, paymentInfo, submissionGuidelines, submissionProcess } from '../data/conferenceData'
 
 function SubmitPaperPage() {
   return (
@@ -19,27 +18,36 @@ function SubmitPaperPage() {
               <div className="max-w-3xl">
                 <SectionHeader
                   kicker="Submit Paper"
-                  title="A structured submission experience for serious academic contributors."
-                  description="Prepare the manuscript according to the brochure guidelines, submit through the portal, and use the generated tracking ID to follow review progress."
+                  title="Submit your abstract through the official submission form."
+                  description="Prepare the abstract according to the submission guidelines, then continue with the client-provided submission form instead of the old website portal."
                   light
                 />
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <Link to="/track-paper" className="button-secondary">
-                    Track Existing Submission
-                  </Link>
+                  <a href={externalForms.abstractSubmission} target="_blank" rel="noreferrer" className="button-secondary">
+                    Open Submission Form <ArrowUpRight size={16} />
+                  </a>
                 </div>
               </div>
 
               <div className="rounded-[28px] border border-white/12 bg-white/8 p-5 shadow-[0_24px_70px_rgba(3,10,20,0.18)] backdrop-blur-xl sm:p-6">
-                <p className="text-xs uppercase tracking-[0.24em] text-teal-200/85">Upload CTA</p>
+                <p className="text-xs uppercase tracking-[0.24em] text-teal-200/85">Submission Link</p>
                 <h3 className="mt-4 font-display text-3xl leading-[0.98] text-white sm:text-4xl">
-                  Upload your manuscript.
+                  Open the abstract submission form.
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-slate-200/78">
-                  PDF metadata, tracking ID, review status, and registration-readiness checks are stored by the backend for both admin review and author-facing progress updates.
+                  The conference team has moved abstract collection to the official submission form. Please use the submission link shared by the client for all new submissions.
                 </p>
-                <div className="mt-6">
-                  <PaperSubmissionForm />
+                <div className="mt-6 rounded-[24px] border border-white/12 bg-white/8 p-5">
+                  <div className="inline-flex rounded-2xl bg-white/12 p-3 text-teal-100">
+                    <ExternalLink size={22} />
+                  </div>
+                  <p className="mt-5 text-sm uppercase tracking-[0.18em] text-teal-100/90">Official Submission Form</p>
+                  <p className="mt-4 text-sm leading-7 text-slate-200/78">
+                    Submit the author details and abstract in the submission form. The old website upload form and tracking workflow are no longer the primary submission route.
+                  </p>
+                  <a href={externalForms.abstractSubmission} target="_blank" rel="noreferrer" className="button-primary mt-6 w-full sm:w-auto">
+                    Open Abstract Submission <ArrowUpRight size={16} />
+                  </a>
                 </div>
               </div>
             </div>
@@ -82,7 +90,7 @@ function SubmitPaperPage() {
                 <div>
                   <h3 className="font-display text-2xl text-slate-950 sm:text-3xl">Payment Info</h3>
                   <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">
-                    Complete the payment after reviewing the manuscript guidelines, then keep the transaction details ready for registration and later verification.
+                    Complete the payment after reviewing the submission guidelines, then keep the transaction details ready for author registration and any follow-up requested by the organizers.
                   </p>
                   <div className="mt-5 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
                     <div className="rounded-2xl bg-slate-50 px-4 py-3">Bank: {paymentInfo.bank}</div>
@@ -110,7 +118,7 @@ function SubmitPaperPage() {
                   </div>
                 ) : (
                   <div className="rounded-[28px] border border-slate-200 bg-slate-50 px-5 py-5 text-sm leading-7 text-slate-600">
-                    QR-based payment information is not included in the current brochure. Please use the listed bank details and accepted online payment modes.
+                    QR-based payment information is not currently listed. Please use the bank details and accepted online payment modes shown here.
                   </div>
                 )}
               </div>

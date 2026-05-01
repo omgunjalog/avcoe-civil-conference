@@ -36,9 +36,21 @@ function Footer() {
               <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-200">Quick Links</h3>
               <div className="mt-5 flex flex-col gap-3">
                 {footerLinks.map((item) => (
-                  <Link key={item.href} to={item.href} className="text-sm text-slate-300/75 transition hover:translate-x-1 hover:text-teal-200">
-                    {item.label}
-                  </Link>
+                  item.external ? (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm text-slate-300/75 transition hover:translate-x-1 hover:text-teal-200"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link key={item.href} to={item.href} className="text-sm text-slate-300/75 transition hover:translate-x-1 hover:text-teal-200">
+                      {item.label}
+                    </Link>
+                  )
                 ))}
               </div>
             </div>

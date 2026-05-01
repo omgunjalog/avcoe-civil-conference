@@ -1,12 +1,11 @@
-import { CalendarClock, Check, CreditCard, TimerReset } from 'lucide-react'
+import { ArrowUpRight, CalendarClock, Check, CreditCard, ExternalLink, TimerReset } from 'lucide-react'
 import { useState } from 'react'
 import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
-import RegistrationForm from '../components/RegistrationForm'
 import SectionHeader from '../components/SectionHeader'
 import SectionFrame from '../components/SectionFrame'
 import SurfaceCard from '../components/SurfaceCard'
-import { paymentInfo, registrationPlans, registrationProcess } from '../data/conferenceData'
+import { externalForms, paymentInfo, registrationPlans, registrationProcess } from '../data/conferenceData'
 
 const segmentButtonClass = (isActive) =>
   `inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition ${
@@ -25,7 +24,7 @@ function RegistrationPage() {
         <PageHero
           kicker="Registration Details"
           title="Flexible conference registration shaped around timing, participation, and delegate type."
-          description="The brochure lists category-wise registration charges, accepted payment modes, and a clear note that registration fees do not include publication charges."
+          description="Review category-wise registration charges, accepted payment modes, and the note that registration fees do not include publication charges."
         >
           <div className="mx-auto max-w-xl rounded-[32px] border border-white/12 bg-white/8 p-2 shadow-[0_24px_70px_rgba(5,14,26,0.2)] backdrop-blur-xl">
             <div className="grid grid-cols-2 gap-2">
@@ -56,7 +55,7 @@ function RegistrationPage() {
               <div className="rounded-[26px] border border-white/70 bg-white/86 px-5 py-5 text-sm text-slate-600 shadow-[0_18px_44px_rgba(7,18,33,0.06)]">
                 <p className="font-semibold text-slate-900">Verification policy</p>
                 <p className="mt-3 leading-7">
-                  Every registration requires payment proof upload and admin verification. The brochure also clarifies that registration charges do not include publication charges.
+                  Every registration requires payment proof upload and admin verification. Registration charges do not include publication charges.
                 </p>
               </div>
             </div>
@@ -86,8 +85,8 @@ function RegistrationPage() {
                     </div>
                   ))}
                 </div>
-                <a href="#registration-form" className="button-primary mt-6 w-full">
-                  Register
+                <a href={externalForms.authorRegistration} target="_blank" rel="noreferrer" className="button-primary mt-6 w-full">
+                  Register <ArrowUpRight size={16} />
                 </a>
               </SurfaceCard>
             </Reveal>
@@ -109,12 +108,15 @@ function RegistrationPage() {
                     </div>
                   ))}
                 </div>
+                <a href={externalForms.authorRegistration} target="_blank" rel="noreferrer" className="button-secondary mt-6 w-full sm:w-auto">
+                  Open Registration Form <ExternalLink size={16} />
+                </a>
               </SurfaceCard>
 
               <SectionFrame variant="light">
                 <h3 className="font-display text-3xl text-slate-950">Payment Details</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  Share the transaction reference and upload payment proof in the form. This matches the brochure note on UTR and bank-name based payment confirmation.
+                  Complete the payment first, then use the official registration form to share the transaction reference and proof as requested by the organizing team.
                 </p>
                 <div className="mt-6 grid gap-3 text-sm text-slate-600">
                   <div className="rounded-2xl bg-slate-50 px-4 py-3">Bank: {paymentInfo.bank}</div>
@@ -147,12 +149,23 @@ function RegistrationPage() {
             <div id="registration-form">
               <SectionHeader
                 kicker="Registration Form"
-                title="Confirm your participation."
-                description="This form connects directly to the conference API and requires a payment reference plus proof upload for admin verification."
+                title="Complete registration through the official registration form."
+                description="The client has replaced the old website registration workflow. Use the organizer-provided registration form for author registration and payment proof submission."
               />
-              <div className="mt-6">
-                <RegistrationForm />
-              </div>
+              <SurfaceCard variant="light" className="mt-6">
+                <div className="inline-flex rounded-2xl bg-teal-50 p-3 text-teal-600 shadow-[0_16px_36px_rgba(65,211,189,0.18)]">
+                  <ExternalLink size={22} />
+                </div>
+                <h3 className="mt-6 font-display text-3xl text-slate-950">Open the registration form.</h3>
+                <p className="mt-4 max-w-2xl text-sm leading-8 text-slate-600 sm:text-[1.02rem]">
+                  Fill in the author registration form, provide your payment details there, and submit directly to the conference team. The old on-site registration form is no longer being used.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a href={externalForms.authorRegistration} target="_blank" rel="noreferrer" className="button-primary">
+                    Open Author Registration <ArrowUpRight size={16} />
+                  </a>
+                </div>
+              </SurfaceCard>
             </div>
           </Reveal>
         </div>

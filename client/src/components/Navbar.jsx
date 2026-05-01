@@ -1,7 +1,7 @@
 import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { navigationLinks, siteMeta } from '../data/conferenceData'
+import { externalForms, navigationLinks, siteMeta } from '../data/conferenceData'
 
 function Navbar() {
   const [open, setOpen] = useState(false)
@@ -69,9 +69,9 @@ function Navbar() {
           </nav>
 
           <div className="hidden lg:col-start-5 lg:block">
-            <Link to="/submit-paper" className="button-primary">
-              Submit Paper
-            </Link>
+            <a href={externalForms.abstractSubmission} target="_blank" rel="noreferrer" className="button-primary">
+              Submit Abstract
+            </a>
           </div>
 
           <button
@@ -100,9 +100,15 @@ function Navbar() {
                 {item.label}
               </NavLink>
             ))}
-            <Link to="/submit-paper" className="button-primary w-full" onClick={() => setOpen(false)}>
-              Submit Paper
-            </Link>
+            <a
+              href={externalForms.abstractSubmission}
+              target="_blank"
+              rel="noreferrer"
+              className="button-primary w-full"
+              onClick={() => setOpen(false)}
+            >
+              Submit Abstract
+            </a>
           </div>
         </div>
       )}

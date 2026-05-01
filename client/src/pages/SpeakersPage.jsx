@@ -13,7 +13,7 @@ function SpeakersPage() {
             <SectionHeader
               kicker="Keynote Speakers"
               title="Keynote speakers and featured invited talks will be announced soon."
-              description="The brochure currently confirms the conference themes, committees, submission guidelines, and important dates. Keynote speaker details will be updated after final confirmation."
+              description="The conference themes, committees, submission guidelines, and important dates are already available. Keynote speaker details will be updated after final confirmation."
               light
             />
           </SurfaceCard>
@@ -78,4 +78,3 @@ function SpeakersPage() {
 }
 
 export default SpeakersPage
-

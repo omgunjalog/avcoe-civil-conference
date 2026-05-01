@@ -1,10 +1,10 @@
-import { ArrowRight, CalendarDays, MapPin } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, CalendarDays, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import SectionHeader from '../components/SectionHeader'
 import SectionFrame from '../components/SectionFrame'
 import SurfaceCard from '../components/SurfaceCard'
-import { aboutCards, heroMetrics, siteMeta } from '../data/conferenceData'
+import { aboutCards, externalForms, heroMetrics, siteMeta } from '../data/conferenceData'
 
 function HomePage() {
   return (
@@ -42,9 +42,9 @@ function HomePage() {
               </div>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-                <Link to="/registration" className="button-primary w-full sm:w-auto">
-                  Register Now
-                </Link>
+                <a href={externalForms.authorRegistration} target="_blank" rel="noreferrer" className="button-primary w-full sm:w-auto">
+                  Register Now <ArrowUpRight size={16} />
+                </a>
                 <Link to="/themes-schedule" className="button-secondary w-full sm:w-auto">
                   View Themes
                 </Link>
@@ -182,9 +182,14 @@ function HomePage() {
                   Present your research, connect with domain experts, and position your work for meaningful academic and industry visibility.
                 </p>
               </div>
-              <Link to="/submit-paper" className="button-primary relative z-10 mt-8 w-full justify-center sm:w-auto lg:mt-0">
-                Submit Paper <ArrowRight size={16} className="ml-2" />
-              </Link>
+              <a
+                href={externalForms.abstractSubmission}
+                target="_blank"
+                rel="noreferrer"
+                className="button-primary relative z-10 mt-8 w-full justify-center sm:w-auto lg:mt-0"
+              >
+                Submit Abstract <ArrowRight size={16} className="ml-2" />
+              </a>
             </div>
           </Reveal>
         </div>

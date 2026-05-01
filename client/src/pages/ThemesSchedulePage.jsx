@@ -1,12 +1,12 @@
 import { CalendarDays, Clock3, Layers3, MapPinned, Sparkles } from 'lucide-react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
 import SectionFrame from '../components/SectionFrame'
 import SurfaceCard from '../components/SurfaceCard'
 import {
   conferenceSchedule,
+  externalForms,
   scheduleAnnouncement,
   scheduleHighlights,
   themesOverview,
@@ -44,7 +44,7 @@ function ThemesSchedulePage() {
           description={
             activeView === 'themes'
               ? 'Explore the official conference themes covering resilient infrastructure, renewable energy, smart grids, intelligent sensing, sustainable materials, and integrated engineering systems.'
-              : 'The brochure already confirms the themes, milestones, and venue. The detailed session schedule will be published separately once the committee finalizes the programme.'
+              : 'The themes, milestones, and venue are confirmed. The detailed session schedule will be published separately once the committee finalizes the programme.'
           }
         >
           <div className="mx-auto max-w-xl rounded-[32px] border border-white/12 bg-white/8 p-2 shadow-[0_24px_70px_rgba(5,14,26,0.2)] backdrop-blur-xl">
@@ -198,12 +198,12 @@ function ThemesSchedulePage() {
 
         <Reveal>
           <SectionFrame variant="steel" className="mt-12 flex flex-col gap-4 sm:flex-row">
-            <Link to="/submit-paper" className="button-primary">
-              Submit Paper
-            </Link>
-            <Link to="/registration" className="button-ghost">
+            <a href={externalForms.abstractSubmission} target="_blank" rel="noreferrer" className="button-primary">
+              Submit Abstract
+            </a>
+            <a href={externalForms.authorRegistration} target="_blank" rel="noreferrer" className="button-ghost">
               Register Now
-            </Link>
+            </a>
           </SectionFrame>
         </Reveal>
       </div>

@@ -101,7 +101,7 @@ function CommitteePage() {
         <PageHero
           kicker="Committee"
           title="Leadership, conveners, and advisory experts behind SRES-26."
-          description="The brochure committee structure includes chief patrons, patrons, conference leadership, conveners, organizing members, and a broad advisory committee."
+          description="The committee structure includes chief patrons, patrons, conference leadership, conveners, organizing members, and a broad advisory committee."
         />
 
         <Reveal>
