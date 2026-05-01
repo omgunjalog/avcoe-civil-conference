@@ -341,7 +341,6 @@ export const footerLinks = [
   { label: 'Conference Themes', href: '/themes-schedule' },
   { label: 'Registration', href: externalForms.authorRegistration, external: true },
   { label: 'Submit Paper', href: externalForms.abstractSubmission, external: true },
-  { label: 'Admin Login', href: '/admin/login' },
 ]
 
 export const socialLinks = [

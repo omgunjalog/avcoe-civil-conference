@@ -1,6 +1,5 @@
 import { Suspense, lazy } from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
-import AdminProtectedRoute from './components/AdminProtectedRoute'
+import { Route, Routes } from 'react-router-dom'
 import { PageShellSkeleton } from './components/Skeletons'
 import SiteLayout from './layouts/SiteLayout'
 import NotFoundPage from './pages/NotFoundPage'
@@ -13,9 +12,6 @@ const RegistrationPage = lazy(() => import('./pages/RegistrationPage'))
 const ImportantDatesPage = lazy(() => import('./pages/ImportantDatesPage'))
 const PublicationsPage = lazy(() => import('./pages/PublicationsPage'))
 const SubmitPaperPage = lazy(() => import('./pages/SubmitPaperPage'))
-const TrackPaperPage = lazy(() => import('./pages/TrackPaperPage'))
-const AdminLoginPage = lazy(() => import('./pages/AdminLoginPage'))
-const AdminDashboardPage = lazy(() => import('./pages/AdminDashboardPage'))
 
 const withPageSuspense = (node) => <Suspense fallback={<PageShellSkeleton />}>{node}</Suspense>
 
@@ -31,18 +27,7 @@ function App() {
         <Route path="/important-dates" element={withPageSuspense(<ImportantDatesPage />)} />
         <Route path="/publications" element={withPageSuspense(<PublicationsPage />)} />
         <Route path="/submit-paper" element={withPageSuspense(<SubmitPaperPage />)} />
-        <Route path="/track-paper" element={withPageSuspense(<TrackPaperPage />)} />
       </Route>
-      <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
-      <Route path="/admin/login" element={withPageSuspense(<AdminLoginPage />)} />
-      <Route
-        path="/admin/dashboard"
-        element={withPageSuspense(
-          <AdminProtectedRoute>
-            <AdminDashboardPage />
-          </AdminProtectedRoute>,
-        )}
-      />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )

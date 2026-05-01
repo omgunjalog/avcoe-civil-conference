@@ -1,4 +1,5 @@
-function SurfaceCard({ as: Component = 'div', variant = 'light', className = '', children }) {
+function SurfaceCard({ as = 'div', variant = 'light', className = '', children }) {
+  const Tag = as
   const variants = {
     light: 'surface-card',
     dark: 'surface-card-dark engineering-panel',
@@ -7,8 +8,7 @@ function SurfaceCard({ as: Component = 'div', variant = 'light', className = '',
     glass: 'glass-panel',
   }
 
-  return <Component className={`${variants[variant] || variants.light} ${className}`.trim()}>{children}</Component>
+  return <Tag className={`${variants[variant] || variants.light} ${className}`.trim()}>{children}</Tag>
 }
 
 export default SurfaceCard
-
