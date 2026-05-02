@@ -118,7 +118,7 @@ export const committee = {
     'Dr. P. N. Nagre',
     'Dr. K. B. Deshmukh',
     'Dr. A. S. Pande',
-    'Subhashchandra Sahoo',
+    'Dr. Subhashchandra Sahoo',
   ],
   advisoryCommittee: [
     'Dr. Premlal Patel - Director, VNIT Nagpur',
