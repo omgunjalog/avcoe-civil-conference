@@ -45,7 +45,7 @@ export const externalForms = {
 export const heroMetrics = [
   { value: '10', label: 'Conference themes' },
   { value: '16 Sep', label: 'Conference date' },
-  { value: '25 May', label: 'Abstract deadline' },
+  { value: '25 Jun', label: 'Abstract deadline' },
   { value: 'AVCOE', label: 'Host institution' },
 ]
 
@@ -118,7 +118,7 @@ export const committee = {
     'Dr. P. N. Nagre',
     'Dr. K. B. Deshmukh',
     'Dr. A. S. Pande',
-    'Dr. Sahu Subhashchandra',
+    'Subhashchandra Sahoo',
   ],
   advisoryCommittee: [
     'Dr. Premlal Patel - Director, VNIT Nagpur',
@@ -226,9 +226,9 @@ export const scheduleAnnouncement = {
   description:
     'The conference date, venue, and submission milestones are confirmed. Session-wise scheduling will be released after paper review and final committee coordination.',
   checkpoints: [
-    'Submission of Abstract: 25th May 2026',
-    'Notification of Acceptance: 15th June 2026',
-    'Last Date of Registration & Submission of Full-Length Paper: 15th July 2026',
+    'Submission of Abstract: 25th June 2026',
+    'Notification of Acceptance: 25th July 2026',
+    'Last Date of Registration: 15th August 2026',
     'Conference Date: 16th September 2026',
   ],
 }
@@ -304,9 +304,9 @@ export const registrationProcess = [
 ]
 
 export const importantDates = [
-  { label: 'Submission of Abstract', date: '25th May 2026' },
-  { label: 'Notification of Acceptance', date: '15th June 2026' },
-  { label: 'Last Date of Registration & Submission of Full-Length Paper', date: '15th July 2026' },
+  { label: 'Submission of Abstract', date: '25th June 2026' },
+  { label: 'Notification of Acceptance', date: '25th July 2026' },
+  { label: 'Last Date of Registration', date: '15th August 2026' },
   { label: 'Conference Date', date: '16th September 2026' },
 ]
 

@@ -42,6 +42,9 @@ function HomePage() {
               </div>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+                <a href={externalForms.abstractSubmission} target="_blank" rel="noreferrer" className="button-secondary w-full sm:w-auto">
+                  Submit Abstract <ArrowRight size={16} />
+                </a>
                 <a href={externalForms.authorRegistration} target="_blank" rel="noreferrer" className="button-primary w-full sm:w-auto">
                   Register Now <ArrowUpRight size={16} />
                 </a>

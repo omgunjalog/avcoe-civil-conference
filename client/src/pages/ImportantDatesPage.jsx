@@ -15,7 +15,7 @@ function ImportantDatesPage() {
               Important milestones leading to {siteMeta.conferenceName} at AVCOE, Sangamner.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-slate-200/82">
-              The abstract deadline, acceptance notification, final registration and full-length paper deadline, and the conference date in September 2026 are listed here for quick reference.
+              The abstract deadline, acceptance notification, final registration milestone, and the conference date in September 2026 are listed here for quick reference.
             </p>
           </SurfaceCard>
         </Reveal>
