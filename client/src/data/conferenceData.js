@@ -24,9 +24,9 @@ export const navigationLinks = [
 
 export const siteMeta = {
   conferenceName: 'SRES-26',
-  subtitle: 'International Conference On',
-  theme: 'Sustainable and Resilient Engineering System',
-  tagline: 'Organized by the Department of Civil Engineering, Amrutvahini College of Engineering, Sangamner.',
+  subtitle: 'International Conference on Sustainable and Resilient Engineering Systems',
+  theme: 'September 2026 Conference',
+  tagline: 'Organized by the Department of Civil Engineering, Amrutvahini College of Engineering, Sangamner',
   date: '16 September 2026',
   venue: 'Amrutvahini College of Engineering, Sangamner, Maharashtra, India',
   description:
@@ -144,7 +144,7 @@ export const committee = {
     'Dr. Ishtiyaq Ahmad - Associate Professor, NIT Raipur',
     'Dr. Raj kumar Sahu - Associate Professor, NIT Raipur',
     'Dr. Meenu Ramdas - Associate Professor, IIT Bhubaneswar',
-    'Dr. Mohammad Achite - Professor, University of Blida, Algeria',
+    'Dr. Mohammad Achite - University Hassiba Benbouali of Chlef, Algeria',
     'Dr. Viniarasi R. - Assistant Professor, IIT Roorkee',
     'Dr. Y. V. Navandar - Assistant Professor, NIT Calicut',
     'Dr. Patil Sunilkumar S. - Professor, Walchand Institute of Technology, Solapur',

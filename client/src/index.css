@@ -202,11 +202,193 @@
     @apply rounded-[26px] border border-white/10 bg-white/7 p-5 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-teal-300/30 hover:bg-white/10 hover:shadow-[0_22px_45px_rgba(65,211,189,0.12)];
   }
 
+  .theme-track-card {
+    @apply relative border-white/70 transition duration-500 hover:-translate-y-2 hover:shadow-[0_34px_90px_rgba(7,18,33,0.16)];
+  }
+
+  .theme-track-card:hover {
+    box-shadow:
+      0 34px 90px rgba(7, 18, 33, 0.16),
+      0 0 0 1px rgba(65, 211, 189, 0.14);
+  }
+
+  .theme-track-art {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    mask-image: linear-gradient(180deg, rgba(0,0,0,0.7), rgba(0,0,0,0.95));
+  }
+
+  .theme-card-bridge {
+    @apply border-t-teal-400/85;
+    background-image:
+      linear-gradient(180deg, rgba(241,252,248,0.98), rgba(225,244,238,0.94)),
+      radial-gradient(circle at top right, rgba(56,211,159,0.16), transparent 28%);
+  }
+
+  .theme-card-bridge .theme-track-art {
+    background-image:
+      radial-gradient(circle at 14% 18%, rgba(56,211,159,0.14), transparent 16%),
+      linear-gradient(135deg, transparent 56%, rgba(56,211,159,0.12) 56%, rgba(56,211,159,0.12) 58%, transparent 58%),
+      linear-gradient(45deg, transparent 52%, rgba(122,216,255,0.14) 52%, rgba(122,216,255,0.14) 54%, transparent 54%),
+      linear-gradient(180deg, transparent 70%, rgba(11,114,110,0.12) 70%, rgba(11,114,110,0.12) 72%, transparent 72%);
+  }
+
+  .theme-card-renewable {
+    @apply border-t-amber-300/85;
+    background-image:
+      linear-gradient(180deg, rgba(253,250,239,0.98), rgba(247,242,220,0.94)),
+      radial-gradient(circle at top right, rgba(244,184,96,0.18), transparent 28%);
+  }
+
+  .theme-card-renewable .theme-track-art {
+    background-image:
+      radial-gradient(circle at 24% 30%, rgba(244,184,96,0.18), transparent 10%),
+      radial-gradient(circle at 24% 30%, transparent 14%, rgba(244,184,96,0.12) 14%, rgba(244,184,96,0.12) 16%, transparent 16%),
+      linear-gradient(180deg, transparent 38%, rgba(56,211,159,0.12) 38%, rgba(56,211,159,0.12) 40%, transparent 40%),
+      linear-gradient(120deg, transparent 62%, rgba(16,185,129,0.12) 62%, rgba(16,185,129,0.12) 64%, transparent 64%);
+  }
+
+  .theme-card-grid {
+    @apply border-t-cyan-300/85;
+    background-image:
+      linear-gradient(180deg, rgba(240,249,253,0.98), rgba(226,241,248,0.94)),
+      radial-gradient(circle at top right, rgba(122,216,255,0.18), transparent 28%);
+  }
+
+  .theme-card-grid .theme-track-art {
+    background-image:
+      radial-gradient(circle at 20% 24%, rgba(14,165,233,0.16), transparent 4%),
+      radial-gradient(circle at 42% 46%, rgba(14,165,233,0.16), transparent 4%),
+      radial-gradient(circle at 72% 28%, rgba(14,165,233,0.16), transparent 4%),
+      linear-gradient(rgba(14,165,233,0.12) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(14,165,233,0.12) 2px, transparent 2px);
+    background-size: auto, auto, auto, 56px 56px, 56px 56px;
+  }
+
+  .theme-card-blueprint {
+    @apply border-t-sky-400/85;
+    background-image:
+      linear-gradient(180deg, rgba(238,246,251,0.98), rgba(224,235,243,0.94)),
+      radial-gradient(circle at top right, rgba(80,150,220,0.16), transparent 28%);
+  }
+
+  .theme-card-blueprint .theme-track-art {
+    background-image:
+      linear-gradient(rgba(59,130,246,0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.1) 1px, transparent 1px),
+      linear-gradient(135deg, transparent 48%, rgba(59,130,246,0.12) 48%, rgba(59,130,246,0.12) 50%, transparent 50%),
+      linear-gradient(0deg, transparent 74%, rgba(59,130,246,0.12) 74%, rgba(59,130,246,0.12) 76%, transparent 76%);
+    background-size: 38px 38px, 38px 38px, auto, auto;
+  }
+
+  .theme-card-materials {
+    @apply border-t-stone-300/90;
+    background-image:
+      linear-gradient(180deg, rgba(249,246,240,0.98), rgba(238,232,223,0.94)),
+      radial-gradient(circle at top right, rgba(168,162,158,0.16), transparent 28%);
+  }
+
+  .theme-card-materials .theme-track-art {
+    background-image:
+      radial-gradient(circle at 18% 22%, rgba(120,113,108,0.1), transparent 8%),
+      radial-gradient(circle at 68% 32%, rgba(120,113,108,0.1), transparent 10%),
+      radial-gradient(circle at 36% 72%, rgba(120,113,108,0.08), transparent 8%),
+      linear-gradient(135deg, transparent 60%, rgba(180,160,130,0.08) 60%, rgba(180,160,130,0.08) 66%, transparent 66%);
+  }
+
+  .theme-card-sensors {
+    @apply border-t-blue-400/85;
+    background-image:
+      linear-gradient(180deg, rgba(239,247,252,0.98), rgba(225,237,246,0.94)),
+      radial-gradient(circle at top right, rgba(59,130,246,0.16), transparent 28%);
+  }
+
+  .theme-card-sensors .theme-track-art {
+    background-image:
+      radial-gradient(circle at 18% 24%, rgba(59,130,246,0.14), transparent 5%),
+      radial-gradient(circle at 52% 42%, rgba(56,189,248,0.14), transparent 5%),
+      radial-gradient(circle at 74% 20%, rgba(59,130,246,0.14), transparent 5%),
+      linear-gradient(135deg, transparent 55%, rgba(59,130,246,0.1) 55%, rgba(59,130,246,0.1) 56%, transparent 56%),
+      linear-gradient(45deg, transparent 38%, rgba(56,189,248,0.12) 38%, rgba(56,189,248,0.12) 39%, transparent 39%);
+  }
+
+  .theme-card-mechanical {
+    @apply border-t-orange-300/85;
+    background-image:
+      linear-gradient(180deg, rgba(249,246,238,0.98), rgba(237,244,238,0.94)),
+      radial-gradient(circle at top right, rgba(251,146,60,0.14), transparent 28%);
+  }
+
+  .theme-card-mechanical .theme-track-art {
+    background-image:
+      linear-gradient(90deg, transparent 24%, rgba(251,146,60,0.12) 24%, rgba(251,146,60,0.12) 26%, transparent 26%),
+      linear-gradient(180deg, transparent 58%, rgba(20,184,166,0.12) 58%, rgba(20,184,166,0.12) 60%, transparent 60%),
+      radial-gradient(circle at 70% 30%, rgba(251,146,60,0.16), transparent 8%),
+      radial-gradient(circle at 34% 66%, rgba(20,184,166,0.14), transparent 10%);
+  }
+
+  .theme-card-digital {
+    @apply border-t-violet-300/85;
+    background-image:
+      linear-gradient(180deg, rgba(245,242,253,0.98), rgba(232,238,250,0.94)),
+      radial-gradient(circle at top right, rgba(168,85,247,0.16), transparent 28%);
+  }
+
+  .theme-card-digital .theme-track-art {
+    background-image:
+      linear-gradient(rgba(168,85,247,0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,211,238,0.1) 1px, transparent 1px),
+      radial-gradient(circle at 18% 24%, rgba(34,211,238,0.16), transparent 5%),
+      radial-gradient(circle at 68% 22%, rgba(168,85,247,0.16), transparent 5%),
+      linear-gradient(135deg, transparent 52%, rgba(34,211,238,0.1) 52%, rgba(34,211,238,0.1) 53%, transparent 53%);
+    background-size: 36px 36px, 36px 36px, auto, auto, auto;
+  }
+
+  .theme-card-industrial {
+    @apply border-t-emerald-400/85;
+    background-image:
+      linear-gradient(180deg, rgba(241,249,244,0.98), rgba(229,238,232,0.94)),
+      radial-gradient(circle at top right, rgba(34,197,94,0.14), transparent 28%);
+  }
+
+  .theme-card-industrial .theme-track-art {
+    background-image:
+      linear-gradient(180deg, transparent 64%, rgba(107,114,128,0.12) 64%, rgba(107,114,128,0.12) 66%, transparent 66%),
+      linear-gradient(90deg, transparent 12%, rgba(34,197,94,0.12) 12%, rgba(34,197,94,0.12) 16%, transparent 16%),
+      linear-gradient(90deg, transparent 56%, rgba(107,114,128,0.12) 56%, rgba(107,114,128,0.12) 60%, transparent 60%),
+      radial-gradient(circle at 76% 28%, rgba(34,197,94,0.12), transparent 10%);
+  }
+
+  .theme-card-integrated {
+    @apply border-t-fuchsia-300/85;
+    background-image:
+      linear-gradient(180deg, rgba(247,245,253,0.98), rgba(233,243,246,0.94)),
+      radial-gradient(circle at top right, rgba(34,211,238,0.12), transparent 28%);
+  }
+
+  .theme-card-integrated .theme-track-art {
+    background-image:
+      radial-gradient(circle at 18% 24%, rgba(34,211,238,0.14), transparent 5%),
+      radial-gradient(circle at 50% 44%, rgba(244,184,96,0.14), transparent 5%),
+      radial-gradient(circle at 76% 22%, rgba(168,85,247,0.14), transparent 5%),
+      linear-gradient(135deg, transparent 55%, rgba(34,211,238,0.1) 55%, rgba(34,211,238,0.1) 56%, transparent 56%),
+      linear-gradient(45deg, transparent 42%, rgba(168,85,247,0.1) 42%, rgba(168,85,247,0.1) 43%, transparent 43%);
+  }
+
   .hero-mesh-card {
     @apply relative overflow-hidden rounded-[34px] border border-white/12 bg-white/7 p-5 text-white shadow-[0_26px_80px_rgba(3,10,20,0.26)] backdrop-blur-2xl;
     background-image:
       linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
       radial-gradient(circle at top right, rgba(65,211,189,0.14), transparent 30%);
+  }
+
+  .hero-video {
+    @apply h-full w-full object-cover;
+    opacity: 0.52;
+    filter: blur(1.5px) saturate(1.04) brightness(0.88);
+    transform: scale(1.04);
+    pointer-events: none;
   }
 
   .floating-panel {

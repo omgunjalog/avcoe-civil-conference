@@ -13,6 +13,19 @@ import {
   tracks,
 } from '../data/conferenceData'
 
+const trackThemeClasses = [
+  'theme-card-bridge',
+  'theme-card-renewable',
+  'theme-card-grid',
+  'theme-card-blueprint',
+  'theme-card-materials',
+  'theme-card-sensors',
+  'theme-card-mechanical',
+  'theme-card-digital',
+  'theme-card-industrial',
+  'theme-card-integrated',
+]
+
 const segmentButtonClass = (isActive) =>
   `inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition ${
     isActive
@@ -96,17 +109,23 @@ function ThemesSchedulePage() {
                 const Icon = track.icon
                 return (
                   <Reveal key={track.title} delay={index * 0.05}>
-                    <SurfaceCard as="article" variant="light" className="h-full overflow-hidden border-t-4 border-t-teal-400/85">
-                      <div className="inline-flex rounded-2xl bg-teal-50 p-3 text-teal-600 shadow-[0_16px_36px_rgba(65,211,189,0.18)]">
+                    <SurfaceCard
+                      as="article"
+                      variant="light"
+                      className={`theme-track-card h-full overflow-hidden border-t-4 ${trackThemeClasses[index] || ''}`}
+                    >
+                      <div className="pointer-events-none absolute inset-0 theme-track-art opacity-90" />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/12" />
+                      <div className="relative inline-flex rounded-2xl bg-white/72 p-3 text-teal-600 shadow-[0_16px_36px_rgba(65,211,189,0.18)] backdrop-blur-sm">
                         <Icon size={22} />
                       </div>
-                      <div className="mt-6 flex items-start justify-between gap-3">
+                      <div className="relative mt-6 flex items-start justify-between gap-3">
                         <h3 className="font-display text-3xl text-slate-950">{track.title}</h3>
                         <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
                           Track {String(index + 1).padStart(2, '0')}
                         </span>
                       </div>
-                      <p className="mt-4 text-sm leading-7 text-slate-600">{track.description}</p>
+                      <p className="relative mt-4 text-sm leading-7 text-slate-700">{track.description}</p>
                     </SurfaceCard>
                   </Reveal>
                 )
