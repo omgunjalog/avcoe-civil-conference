@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { ArrowRight, ArrowUpRight, CalendarDays, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
@@ -7,22 +8,47 @@ import SurfaceCard from '../components/SurfaceCard'
 import { aboutCards, externalForms, heroMetrics, siteMeta } from '../data/conferenceData'
 
 function HomePage() {
+  const [showHeroVideo, setShowHeroVideo] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined
+    }
+
+    const mediaQuery = window.matchMedia('(min-width: 1024px)')
+    const handleMediaChange = (event) => {
+      setShowHeroVideo(event.matches)
+    }
+
+    setShowHeroVideo(mediaQuery.matches)
+
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', handleMediaChange)
+      return () => mediaQuery.removeEventListener('change', handleMediaChange)
+    }
+
+    mediaQuery.addListener(handleMediaChange)
+    return () => mediaQuery.removeListener(handleMediaChange)
+  }, [])
+
   return (
     <>
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 mesh-bg" />
-        <div className="absolute inset-0 hidden overflow-hidden lg:block">
-          <video
-            className="hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          >
-            <source src="/media/avcoe-campus-hero.mp4" type="video/mp4" />
-          </video>
-        </div>
+        {showHeroVideo ? (
+          <div className="absolute inset-0 overflow-hidden">
+            <video
+              className="hero-video"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            >
+              <source src="/media/avcoe-campus-hero.mp4" type="video/mp4" />
+            </video>
+          </div>
+        ) : null}
         <div className="absolute inset-0 hero-grid-overlay" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/30 via-navy-950/38 to-navy-950/60" />
         <div className="floating-orb absolute -left-24 top-28 h-72 w-72 rounded-full bg-teal-300/18 blur-3xl" />
