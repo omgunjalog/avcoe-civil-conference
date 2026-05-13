@@ -259,21 +259,21 @@ export const registrationPlans = {
     plans: [
       {
         category: 'UG & PG Students',
-        price: 'INR 500',
+        price: 'INR 2500',
         accent: 'border-teal-300/70',
         tag: 'Student rate',
         features: ['Participation in conference activities', 'Best suited for undergraduate and postgraduate delegates', 'Registration fee does not include publication charges'],
       },
       {
-        category: 'Research Scholars & Academicians',
-        price: 'INR 1000',
+        category: 'Research Scholar & Academicians',
+        price: 'INR 4000',
         accent: 'border-sky-300/70',
         tag: 'Academic rate',
         features: ['Suitable for research scholars and faculty members', 'Supports participation in conference sessions', 'Registration fee does not include publication charges'],
       },
       {
-        category: 'Industry / Corporate Professionals',
-        price: 'INR 1500',
+        category: 'Industry & Corporate Professionals',
+        price: 'INR 5000',
         accent: 'border-amber-300/70',
         tag: 'Professional rate',
         features: ['Designed for industry and corporate delegates', 'Conference participation and networking access', 'Registration fee does not include publication charges'],
@@ -287,7 +287,7 @@ export const registrationPlans = {
     plans: [
       {
         category: 'Foreign Delegates',
-        price: 'USD 50',
+        price: '100$',
         accent: 'border-teal-300/70',
         tag: 'International',
         features: ['For overseas delegates and collaborators', 'Conference participation access', 'Registration fee does not include publication charges'],
